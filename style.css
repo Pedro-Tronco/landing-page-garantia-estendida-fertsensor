@@ -398,8 +398,9 @@ a:visited {
     align-items: center;
     gap: 5px;
     margin: 30px;
-    margin-top: max(35px, 7vw - 7vh);
+    margin-top: max(35px, 15%);
     animation: bob 3s infinite;
+    text-decoration: none;
 }
 
 .hero-scroll-hint .down-arrow {
