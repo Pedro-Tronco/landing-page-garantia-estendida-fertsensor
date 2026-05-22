@@ -27,49 +27,6 @@
     }
 }
 
-@media (max-width: 900px) {
-    .hero-container {
-        flex-direction: column;
-        align-items: stretch;
-        min-height: auto;
-        background: var(--navy);
-    }
-
-    .hero-left,
-    .hero-right {
-        width: 100%;
-    }
-
-    .hero-left {
-        height: auto;
-        padding-bottom: 20px;
-    }
-
-    .hero-right {
-        padding-top: 20px;
-        align-items: stretch;
-    }
-
-    .hero-form {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto 20px;
-    }
-
-    .hero-cards {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .hero-card {
-        width: 100%;
-    }
-
-    .hero-card-separator {
-        display: none;
-    }
-}
-
 @keyframes bob {
     0% {
         transform: translateY(0);
@@ -191,7 +148,7 @@ a:visited {
     width: auto;
     display: flex;
     flex-direction: row;
-    height: max(100dvh - 64px, 500px);
+    height: max(100svh - 64px, 500px, fit-content);
     min-height: fit-content;
     background: linear-gradient(100deg, transparent 55%, var(--navy-light) 40%);
     background-color: var(--navy);
@@ -202,7 +159,7 @@ a:visited {
 
 .hero-left {
     width: max(50%, 400px);
-    height: max(100dvh - 64px, 500px);
+    height: max(100svh - 64px, 500px);
     min-height: fit-content;
     padding: 0;
     margin: 0;
@@ -308,7 +265,7 @@ a:visited {
 
 .hero-card h1 {
     font-family: var(--font-title);
-    font-size: 12px;
+    font-size: max(12px, 0.9vw);
     align-self: flex-start;
     font-weight: 700;
     text-transform: uppercase;
@@ -322,7 +279,7 @@ a:visited {
 
 .hero-card p {
     font-family: var(--font-title);
-    font-size: 15px;
+    font-size: max(14px, 1vw);
 }
 
 .hero-card-separator {
@@ -467,7 +424,7 @@ a:visited {
 
 .content-header h1 {
     font-family: var(--font-title);
-    font-size: clamp(26px, 3vw, 40px);
+    font-size: 40px;
     font-weight: 700;
     color: var(--navy);
     line-height: 1.1;
