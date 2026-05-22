@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fert Sensor - Programa de Garantia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/mustache@4.2.0/mustache.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <img src="img/logo_mockada.png" alt="FertiSystem" class="nav-logo">
+
+        <script id="nav-buttons-template" type="text/template">
+            {{#nav.buttons}}
+                <a href="#{{navigation}}">{{name}}</a>
+            {{/nav.buttons}}
+        </script>
+        <div id="nav-buttons-target" class="nav-buttons"></div>
+
+        <div class="lang-dropdown">
+            <select id="lang-toggle" class="lang-selection">
+                <option value="pt-br">PT-BR</option>
+                <option value="en-us">EN-US</option>
+            </select>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <script id="hero-template" type="text/template">
+                <div class="hero-container">
+                    <div class="hero-left">
+                        <div class="hero-badge"><ul><li>{{hero.badge}}</li></ul></div>
+                        <div class="hero-title">
+                            <h1>{{{hero.title}}}</h1>
+                            <p>{{hero.subtitle}}</p>
+                        </div>
+                        <div class="hero-cards">
+                            {{#hero.cards}}
+                            <div class="hero-card" style="background-color: {{backgroundColor}}33; color: {{fontColor}}; border: 0.5px solid {{fontColor}};">
+                                <h1>{{title}}</h1>
+                                <h2>{{number}}</h2>
+                                <p>{{unit}}</p>
+                            </div>
+                            {{^last}}
+                            <div class="hero-card-separator">+</div>
+                            {{/last}}
+                            {{/hero.cards}}
+                        </div>
+                        <div class="hero-observation">
+                            <h1>{{hero.observation.symbol}}</h1>
+                            <p><strong>{{hero.observation.title}}</strong> {{hero.observation.description}}</p>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hero-form">
+                            <h1>{{hero.form.title}}</h1>
+                            <h2>{{hero.form.subtitle}}</h2>
+                            <ul>
+                                {{#hero.form.fields}}
+                                <li>{{label}}</li>
+                                {{/hero.form.fields}}
+                            </ul>
+                            <form action="{{hero.form.buttonUrl}}" method="get" target="_blank">
+                                <button type="submit">{{hero.form.buttonLabel}}</button>
+                            </form>
+                            <p>{{hero.form.note}}</p>
+                        </div>
+                        <!-- <img src="img/FertSensor.png" alt="FertSensor"> -->
+                        <div>
+                            <a href="#install-header-target" class="hero-scroll-hint">
+                                <p>{{hero.scrollHintLabel}}</p>
+                                <svg class="down-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </script>
+            <div id="hero-target" class="hero-content"></div>
+        </section>
+
+        <header>
+            <script id="install-header-template" type="text/template">
+                <h2>{{install-header.subtitle}}</h2>
+                <h1>{{install-header.title}}</h1>
+                <p>{{install-header.description}}</p>
+            </script>
+            <div id="install-header-target" class="install-header content-header"></div>
+        </header>
+        <section>
+            <script id="install-template" type="text/template">
+                {{#install-section}}
+                    {{#videoToRight}}
+                    <h1>{{title}}</h1>
+                        <article class="install-article">
+                            <div class="install-content">
+                                <p class="install-description">{{description}}</p>
+                                <ul>
+                                    {{#steps}}
+                                    <li>{{{description}}}</li>
+                                    {{/steps}}
+                                </ul>
+                                <div class="install-observation">
+                                    <p><strong>{{observation.title}}</strong> {{{observation.description}}}</p>
+                                </div>
+                            </div>
+                            <div class="install-video">
+                                <iframe 
+                                    src="{{videoUrl}}" 
+                                    title="{{title}}"
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        </article>
+                    {{/videoToRight}}
+                    {{^videoToRight}}
+                    <h1>{{title}}</h1>
+                        <article class="install-article">
+                            <div class="install-video">
+                                <iframe 
+                                    src="{{videoUrl}}" 
+                                    title="{{title}}"
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <div class="install-content">
+                                <p class="install-description">{{description}}</p>
+                                <ul>
+                                    {{#steps}}
+                                    <li>{{{description}}}</li>
+                                    {{/steps}}
+                                </ul>
+                                <div class="install-observation">
+                                    <p><strong>{{observation.title}}</strong> {{{observation.description}}}</p>
+                                </div>
+                            </div>
+                        </article>
+                    {{/videoToRight}}
+                {{/install-section}}
+            </script>
+            <div id="install-target" class="install-section"></div>
+        </section>
+
+    </main>
+
+    <!-- Loads all elements based on lang file -->
+    <script src="script.js" defer></script>
+</body>
+
+</html>

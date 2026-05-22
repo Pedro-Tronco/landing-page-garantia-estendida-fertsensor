@@ -1,0 +1,245 @@
+{
+    "nav": {
+        "buttons": [
+            {
+                "name": "Warranty",
+                "navigation": "hero-target"
+            },
+            {
+                "name": "Installation",
+                "navigation": "install-header-target"
+            },
+            {
+                "name": "FAQ"
+            }
+        ]
+    },
+    "hero": {
+        "title": "<div style='color: var(--orange);'>Extended Warranty</div>Program",
+        "subtitle": "Register your system and double your coverage — from 12 to 24 months of manufacturer warranty, at no additional cost.",
+        "badge": "Fert Sensor + Monitor AT200",
+        "cards": [
+            {
+                "title": "Standard",
+                "number": 12,
+                "unit": "months included",
+                "backgroundColor": "#0072CE",
+                "fontColor": "var(--gray)",
+                "last": false
+            },
+            {
+                "title": "Extended",
+                "number": 12,
+                "unit": "additional months",
+                "backgroundColor": "#FF6A39",
+                "fontColor": "var(--orange)",
+                "last": true
+            }
+        ],
+        "observation": {
+            "symbol": "⚠️",
+            "title": "Attention:",
+            "description": "The power battery is a consumable item and is not covered by the extended warranty program. The warranty also does not cover misuse, negligence, or incorrect installation."
+        },
+        "form": {
+            "title": "Activate your extended warranty",
+            "subtitle": "Fill out the form to ensure 24 months of full coverage for your Fert Sensor system.",
+            "fields": [
+                {
+                    "label": "Just 5 minutes to answer"
+                },
+                {
+                    "label": "Purchase invoice number"
+                },
+                {
+                    "label": "Copy of the purchase invoice"
+                },
+                {
+                    "label": "Photos of the installed system"
+                },
+                {
+                    "label": "NPS satisfaction response"
+                }
+            ],
+            "buttonLabel": "Fill out form",
+            "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform",
+            "note": "⏱ Register within 30 days after installation"
+        },
+        "scrollHintLabel": "Learn more"
+    },
+    "install-header": {
+        "title": "System installation and setup",
+        "subtitle": "— User guide",
+        "description": "Follow the steps below to correctly install and configure your Fert Sensor and Monitor AT200."
+    },
+    "install-section": [
+        {
+            "title": "1- Installing the Fert Sensor on the implement",
+            "description": "Before installing, choose the best position on the implement. Avoid contact between the sensor and metal or moving parts.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": true,
+            "steps": [
+                {
+                    "description": "Secure the sensor with the included <a href='#install-header-target' target='_blank'>Hellermann Anti-UV</a> strap."
+                },
+                {
+                    "description": "Pass the strap through the front channel of the sensor and wrap the hose with the tabs."
+                },
+                {
+                    "description": "Tighten until the sensor is secured without deforming the hose."
+                },
+                {
+                    "description": "Test by shaking the hose — simulate the implement's movement."
+                },
+                {
+                    "description": "Cut off the excess strap after fastening."
+                }
+            ],
+            "observation": {
+                "title": "Note:",
+                "description": "The sensor is completely wireless and resistant to dust and water — no periodic maintenance is required in the field."
+            }
+        },
+        {
+            "title": "2- Installing the AT200 Monitor on the tractor",
+            "description": "The monitor can be mounted with a suction cup (on glass) or a clamp (on bars). The antenna must always remain vertical.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": false,
+            "steps": [
+                {
+                    "description": "<strong>Suction cup:</strong> clean the surface, attach it, press firmly, and turn the latch."
+                },
+                {
+                    "description": "<strong>Clamp:</strong> position the monitor, pass the clamp through, and tighten the screw until secured."
+                },
+                {
+                    "description": "Aim the monitor toward the operator's seat."
+                },
+                {
+                    "description": "Keep the antenna always vertical (range up to 20 m with obstacles)."
+                },
+                {
+                    "description": "Avoid placing it behind the cab pillars."
+                }
+            ],
+            "observation": {
+                "title": "Electrical connection:",
+                "description": "Connect the red cable (3A fuse) to the positive (+) terminal and the black cable to the negative (−) terminal of the tractor battery (12V DC). Avoid contact with moving parts or hot surfaces."
+            }
+        },
+        {
+            "title": "3- Sensor identification and addressing",
+            "description": "Each sensor must be identified with the row number and addressed to the monitor before operation.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": true,
+            "steps": [
+                {
+                    "description": "There are 3 fields on the front of the sensor — use a permanent marker."
+                },
+                {
+                    "description": "Enter the row number (e.g., 001, 002...)."
+                },
+                {
+                    "description": "On the monitor, press <span style='padding: 0 5px;'><strong>Menu → Sensor → Address</strong></span>."
+                },
+                {
+                    "description": "Select the row number with ▲▼ and confirm <b>✓</b>."
+                },
+                {
+                    "description": "Bring the sensor symbol close to the monitor symbol for ~5 seconds."
+                },
+                {
+                    "description": "Wait for confirmation and repeat for each sensor."
+                }
+            ],
+            "observation": {
+                "title": "Note:",
+                "description": "If the sensor is not recognized, it may be in power-saving mode. Use a screwdriver to tap it lightly and activate it."
+            }
+        },
+        {
+            "title": "4- Main screen and status reading",
+            "description": "On the AT200 main screen, you can monitor the real-time status of all monitored lines.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": false,
+            "steps": [
+                {
+                    "description": "<strong>FLOW OK / arrows (›):</strong> all lines with normal flow"
+                },
+                {
+                    "description": "<strong>MOVEMENT:</strong> flow interrupted by a stop or maneuver of the implement"
+                },
+                {
+                    "description": "<strong>FAULT + row number:</strong> clogging or lack of material — check the indicated line"
+                },
+                {
+                    "description": "<strong>LOW BATTERY:</strong> the sensor battery needs to be replaced soon"
+                },
+                {
+                    "description": "The number in the upper-right corner indicates the lines that are addressed and communicating"
+                }
+            ],
+            "observation": {
+                "title": "Electrical connection:",
+                "description": "Connect the red cable (3A fuse) to the positive (+) terminal and the black cable to the negative (−) terminal of the tractor battery (12V DC). Avoid contact with moving parts or hot surfaces."
+            }
+        },
+        {
+            "title": "5- Menu settings",
+            "description": "The AT200 menu offers brightness, volume, clock, and sensor management adjustments.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": true,
+            "steps": [
+                {
+                    "description": "<strong>Brightness/Volume:</strong> 5 levels — Menu → Brightness or Volume → ▲▼ → ✓"
+                },
+                {
+                    "description": "<strong>Clock:</strong> Menu → Clock → adjust day, month, year, hour, and minute"
+                },
+                {
+                    "description": "<strong>Read sensor:</strong> Menu → Sensor → Read — check the configured line and monitor"
+                },
+                {
+                    "description": "<strong>Disable:</strong> Menu → Sensor → Disable — removes the line from the network"
+                }
+            ],
+            "observation": {
+                "title": "Attention:",
+                "description": "To cancel any operation, press <strong>✕</strong> — the monitor returns immediately to the main screen."
+            }
+        },
+        {
+            "title": "6- Replacing the Fert Sensor battery",
+            "description": "3.6V Lithium Battery – 4000mAh, with an approximate lifespan of ~2,500 hours. The monitor warns you in advance when it needs to be replaced.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": false,
+            "steps": [
+                {
+                    "description": "Remove the sensor from the implement — <strong>do not replace it while the sensor is installed</strong>"
+                },
+                {
+                    "description": "Using a Phillips screwdriver, loosen the 4 screws and remove the cover"
+                },
+                {
+                    "description": "Pull out the battery and foam to access the connector"
+                },
+                {
+                    "description": "Disconnect carefully — do not use excessive force"
+                },
+                {
+                    "description": "Connect the new battery (a gentle fit confirms the correct position)"
+                },
+                {
+                    "description": "Reinstall the foam, battery, cover, and screws"
+                },
+                {
+                    "description": "The sensor automatically resumes communication, keeping the configuration"
+                }
+            ],
+            "observation": {
+                "title": "Important:",
+                "description": "Use original FertiSystem batteries. Damage to wires, connectors, or seals during replacement is not covered by the warranty."
+            }
+        }
+    ]
+}

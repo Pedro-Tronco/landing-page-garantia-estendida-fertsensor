@@ -1,0 +1,174 @@
+{
+    "nav": {
+        "buttons": [
+            {
+                "name": "Garantia",
+                "navigation": "hero-target"
+            },
+            {
+                "name": "Instalação",
+                "navigation": "install-header-target"
+            },
+            {
+                "name": "Dúvidas"
+            }
+        ]
+    },
+
+    "hero": {
+        "title": "Programa de <div style='color: var(--orange);'>Garantia Estendida</div>",
+        "subtitle": "Registre seu sistema e duplique sua cobertura — de 12 para 24 meses de garantia do fabricante, sem custo adicional.",
+        "badge": "Fert Sensor + Monitor AT200",
+        "cards": [
+            {
+                "title": "Padrão",
+                "number": 12,
+                "unit": "meses incluídos",
+                "backgroundColor": "#0072CE",
+                "fontColor": "var(--gray)",
+                "last": false
+            },
+            {
+                "title": "Estendida",
+                "number": 12,
+                "unit": "meses adicionais",
+                "backgroundColor": "#FF6A39",
+                "fontColor": "var(--orange)",
+                "last": true
+            }
+        ],
+        "observation": {
+            "symbol": "⚠️",
+            "title": "Atenção:",
+            "description": "A bateria de energia é um item consumível e não está coberta pelo programa de garantia estendida. A garantia também não cobre mal uso, negligência ou instalação incorreta."
+        },
+        "form": {
+            "title": "Ative sua garantia estendida",
+            "subtitle": "Preencha o formulário para garantir 24 meses de cobertura total para seu sistema Fert Sensor.",
+            "fields": [
+                {"label": "Apenas 5 minutos para responder"},
+                {"label": "Número da invoice de compra"},
+                {"label": "Cópia da nota fiscal de compra"},
+                {"label": "Fotos do sistema instalado"},
+                {"label": "Resposta de satisfação NPS"}
+            ],
+            "buttonLabel": "Preencher formulário",
+            "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform",
+            "note": "⏱ Registre em até 30 dias após a instalação"
+        },
+        "scrollHintLabel": "Saiba mais"
+    },
+
+    "install-header": {
+        "title": "Instalação e configuração do sistema",
+        "subtitle": "— Guia de uso",
+        "description": "Siga os passos abaixo para instalar e configurar corretamente seu Fert Sensor e Monitor AT200."
+    },
+
+    "install-section": [
+        {
+            "title": "1- Instalação do Fert Sensor no implemento",
+            "description": "Antes de instalar, defina a melhor posição no implemento. Evite contato do sensor com partes metálicas ou móveis.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": true,
+            "steps": [
+                {"description": "Fixe o sensor com a cinta <a href='#install-header-target' target='_blank'>Hellermann Anti-UV</a> inclusa no produto."},
+                {"description": "Passe a cinta pelo canal frontal do sensor e abrace o mangote com as abas."},
+                {"description": "Aperte até o sensor ficar fixo, sem deformar o mangote."},
+                {"description": "Teste chacoalhando o mangote — simule o movimento do implemento."},
+                {"description": "Corte a sobra da cinta após fixação."}
+            ],
+            "observation": {
+                "title": "Observação:",
+                "description": "O sensor é totalmente sem fios e resistente a poeira e água — não são necessárias manutenções periódicas no campo."
+            }
+        },
+        {
+            "title": "2- Instalação do Monitor AT200 no trator",
+            "description": "O monitor pode ser fixado com ventosa (em vidro) ou abraçadeira (em barras). A antena deve ficar sempre na vertical.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": false,
+            "steps": [
+                {"description": "<strong>Ventosa:</strong> limpe a superfície, encaixe, pressione firmemente e gire o fecho."},
+                {"description": "<strong>Abraçadeira:</strong> posicione o monitor, passe a abraçadeira e aperte o parafuso até fixar."},
+                {"description": "Direcione o monitor para o assento do operador."},
+                {"description": "Mantenha a antena sempre na vertical (alcance de até 20m com barreiras)."},
+                {"description": "Evite posicionar atrás das colunas da cabine."}
+            ],
+            "observation": {
+                "title": "Ligação elétrica:",
+                "description": "Conecte o cabo vermelho (fusível 3A) ao terminal positivo (+) e o cabo preto ao negativo (−) da bateria do trator (12V DC). Evite contato com partes móveis ou superfícies quentes."
+            }
+        },
+        {
+            "title": "3- Identificação e endereçamento dos sensores",
+            "description": "Cada sensor precisa ser identificado com o número da linha e endereçado ao monitor antes de operar.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": true,
+            "steps": [
+                {"description": "Na parte frontal do sensor há 3 campos — use caneta permanente."},
+                {"description": "Preencha com o número da linha (ex.: 001, 002...)."},
+                {"description": "No monitor, pressione <span style='padding: 0 5px;'><strong>Menu → Sensor → Endereçar</strong></span>."},
+                {"description": "Selecione o número da linha com ▲▼ e confirme <b>✓</b>."},
+                {"description": "Encoste o símbolo do sensor no símbolo do monitor por ~5 segundos."},
+                {"description": "Aguarde a confirmação e repita para cada sensor."}
+            ],
+            "observation": {
+                "title": "Observação:",
+                "description": "Se o sensor não for reconhecido, pode estar em modo de economia. Use uma chave de fenda para dar leves batidas e ativá-lo."
+            }
+        },
+        {
+            "title": "4- Tela principal e leitura de status",
+            "description": "Na tela principal do AT200 você acompanha em tempo real o status de todas as linhas monitoradas.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": false,
+            "steps": [
+                {"description": "<strong>FLUXO OK / setas (›):</strong> todas as linhas com fluxo normal"},
+                {"description": "<strong>MANOBRA:</strong> fluxo interrompido por parada ou manobra do implemento"},
+                {"description": "<strong>FALHA + número da linha:</strong> entupimento ou falta de material — verifique a linha indicada"},
+                {"description": "<strong>PILHA FRACA:</strong> bateria do sensor precisa ser trocada em breve"},
+                {"description": "O número no canto superior direito indica linhas endereçadas e comunicando"}
+            ],
+            "observation": {
+                "title": "Ligação elétrica:",
+                "description": "Conecte o cabo vermelho (fusível 3A) ao terminal positivo (+) e o cabo preto ao negativo (−) da bateria do trator (12V DC). Evite contato com partes móveis ou superfícies quentes."
+            }
+        },
+        {
+            "title": "5- Configurações do menu",
+            "description": "O menu do AT200 oferece ajustes de brilho, volume, relógio e gerenciamento de sensores.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": true,
+            "steps": [
+                {"description": "<strong>Brilho/Volume:</strong> 5 níveis — Menu → Brilho ou Volume → ▲▼ → ✓"},
+                {"description": "<strong>Relógio:</strong> Menu → Relógio → ajuste dia, mês, ano, hora e minuto"},
+                {"description": "<strong>Ler sensor:</strong> Menu → Sensor → Ler — verificar linha e monitor configurados"},
+                {"description": "<strong>Desabilitar:</strong> Menu → Sensor → Desabilitar — remove linha da rede"}
+            ],
+            "observation": {
+                "title": "Atenção:",
+                "description": "Para cancelar qualquer operação, pressione <strong>✕</strong> — o monitor retorna à tela principal imediatamente."
+            }
+        },
+        {
+            "title": "6- Troca de bateria do Fert Sensor",
+            "description": "Bateria Lítio 3,6V – 4000mAh, com vida útil de ~2.500 horas. O monitor avisa com antecedência quando precisar trocar.",
+            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoToRight": false,
+            "steps": [
+                {"description": "Retire o sensor do implemento — <strong>não trocar com o sensor instalado</strong>"},
+                {"description": "Com chave Philips, solte os 4 parafusos e remova a tampa"},
+                {"description": "Puxe a bateria e a espuma para acessar o conector"},
+                {"description": "Desconecte com cuidado — sem força excessiva"},
+                {"description": "Conecte a nova bateria (encaixe suave confirma posição correta)"},
+                {"description": "Recoloque espuma, bateria, tampa e parafusos"},
+                {"description": "O sensor volta a comunicar automaticamente, mantendo a configuração"}
+            ],
+            "observation": {
+                "title": "Importante:",
+                "description": "Use baterias originais FertiSystem. Danos em fios, conectores ou vedação durante a troca não são cobertos pela garantia."
+            }
+        }
+    ]
+}
