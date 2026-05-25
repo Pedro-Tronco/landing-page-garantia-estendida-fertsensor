@@ -181,8 +181,8 @@
                 }
             ],
             "observation": {
-                "title": "Electrical connection:",
-                "description": "Connect the red cable (3A fuse) to the positive (+) terminal and the black cable to the negative (−) terminal of the tractor battery (12V DC). Avoid contact with moving parts or hot surfaces."
+                "title": "History:",
+                "description": "Access <strong>Menu → History</strong> to view the complete alarm log with date, time, and duration — useful for diagnosing recurring issues."
             }
         },
         {
@@ -361,5 +361,35 @@
         "subtitle": "It takes less than 5 minutes — and doubles your coverage.",
         "buttonLabel": "Fill out the registration form",
         "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform"
+    },
+    "footer": {
+        "webcommerceUrl": "https://www.fertisystem.com.br/produtos?language=en",
+        "buttons": [
+            {
+                "name": "Terms of Use",
+                "url": "https://www.fertisystem.com.br/p/termos-de-uso?language=en"
+            },
+            {
+                "name": "Privacy Policy",
+                "url": "https://www.fertisystem.com.br/p/politica-de-privacidade?language=en"
+            },
+            {
+                "name": "Exchanges and Returns",
+                "url": "https://www.fertisystem.com.br/p/trocas-e-devolucoes?language=en"
+            },
+            {
+                "name": "Shipping and Delivery Times",
+                "url": "https://www.fertisystem.com.br/p/entregas-e-prazo?language=en"
+            },
+            {
+                "name": "Download Library",
+                "url": "https://www.fertisystem.com.br/p/biblioteca-de-downloads?language=en"
+            },
+            {
+                "name": "Ombudsman",
+                "url": "https://www.fertisystem.com.br/p/ouvidoria?language=en"
+            }
+        ],
+        "copyright": "©2026 J2M Industria e Comercio LTDA. All rights reserved. CNPJ: 05.039.976/0001-91"
     }
 }

@@ -181,8 +181,8 @@
                 }
             ],
             "observation": {
-                "title": "Ligação elétrica:",
-                "description": "Conecte o cabo vermelho (fusível 3A) ao terminal positivo (+) e o cabo preto ao negativo (−) da bateria do trator (12V DC). Evite contato com partes móveis ou superfícies quentes."
+                "title": "Histórico:",
+                "description": "Acesse <strong>Menu → Histórico</strong> para ver o registro completo de alarmes com data, hora e duração — útil para diagnóstico de problemas recorrentes."
             }
         },
         {
@@ -363,6 +363,7 @@
         "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform"
     },
     "footer": {
+        "webcommerceUrl": "https://www.fertisystem.com.br/produtos",
         "buttons": [
             {
                 "name": "Termos de Uso",
