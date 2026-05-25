@@ -6,7 +6,7 @@
                 "navigation": "hero-target"
             },
             {
-                "name": "Installation",
+                "name": "User guide",
                 "navigation": "install-header-target"
             },
             {
@@ -245,7 +245,7 @@
     ],
     "faq-header": {
         "title": "Frequently Asked Questions",
-        "subtitle": "— Questions",
+        "subtitle": "— FAQ",
         "description": "Choose a category to find your answer quickly."
     },
     "faq-content": {

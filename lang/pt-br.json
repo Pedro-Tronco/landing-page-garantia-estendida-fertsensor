@@ -361,5 +361,34 @@
         "subtitle": "Leva menos de 5 minutos — e dobra sua cobertura.",
         "buttonLabel": "Preencher o formulário de registro",
         "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform"
+    },
+    "footer": {
+        "buttons": [
+            {
+                "name": "Termos de Uso",
+                "url": "https://www.fertisystem.com.br/p/termos-de-uso"
+            },
+            {
+                "name": "Política de Privacidade",
+                "url": "https://www.fertisystem.com.br/p/politica-de-privacidade"
+            },
+            {
+                "name": "Trocas e Devoluções",
+                "url": "https://www.fertisystem.com.br/p/trocas-e-devolucoes"
+            },
+            {
+                "name": "Entregas e Prazo",
+                "url": "https://www.fertisystem.com.br/p/entregas-e-prazo"
+            },
+            {
+                "name": "Biblioteca de Downloads",
+                "url": "https://www.fertisystem.com.br/p/biblioteca-de-downloads"
+            },
+            {
+                "name": "Ouvidoria",
+                "url": "https://www.fertisystem.com.br/p/ouvidoria"
+            }
+        ],
+        "copyright": "©2026 J2M Industria e Comercio LTDA. Todos os direitos reservados. CNPJ: 05.039.976/0001-91"
     }
 }

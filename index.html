@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fert Sensor - Programa de Garantia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +29,7 @@
         <div class="lang-dropdown">
             <select id="lang-toggle" class="lang-selection">
                 <option value="pt-br">PT 🇧🇷</option>
-                <option value="en-us">EN 🇬🇧</option>
+                <option value="en-us">EN 🇺🇸</option>
             </select>
         </div>
     </nav>
@@ -157,6 +158,8 @@
             <div id="install-target" class="install-section"></div>
         </section>
 
+        <hr>
+
         <header>
             <script id="faq-header-template" type="text/template">
                 <h2>{{faq-header.subtitle}}</h2>
@@ -209,6 +212,45 @@
         </section>
 
     </main>
+
+    <footer>
+        <script id="footer-template" type="text/template">
+            <div class="footer-container">
+                <nav class="footer-buttons">
+                    {{#footer.buttons}}
+                        <a href="{{url}}" target="_blank">{{name}}</a>
+                    {{/footer.buttons}}
+                </nav>
+                
+                <hr>
+
+                <div class="footer-network">
+                    <a class="footer-logo" href="https://www.fertisystem.com.br/produtos" target="_blank">
+                        <img src="img/logo_mockada.png" alt="FertiSystem">
+                    </a>
+                    <p class="footer-copyright">{{footer.copyright}}</p>
+                    <nav class="footer-network-buttons">
+                        <a href="https://www.facebook.com/FertiSystem/" target="_blank">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/fertisystem/" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/fertisystem/" target="_blank">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC4oIAqM8uKMc3sUUWeFCQRg" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </nav>
+                </div>
+
+                <div >
+                </div>
+            </div>
+        </script>
+        <div id="footer-target" class="footer-section"></div>
+    </footer>
 
     <!-- Loads all elements based on lang file -->
     <script src="script.js" defer></script>
