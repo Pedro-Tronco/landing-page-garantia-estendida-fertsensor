@@ -119,7 +119,7 @@
                                     src="{{videoUrl}}" 
                                     title="{{title}}"
                                     frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" 
                                     referrerpolicy="strict-origin-when-cross-origin" 
                                     allowfullscreen>
                                 </iframe>
@@ -134,7 +134,7 @@
                                     src="{{videoUrl}}" 
                                     title="{{title}}"
                                     frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" 
                                     referrerpolicy="strict-origin-when-cross-origin" 
                                     allowfullscreen>
                                 </iframe>
@@ -155,6 +155,57 @@
                 {{/install-section}}
             </script>
             <div id="install-target" class="install-section"></div>
+        </section>
+
+        <header>
+            <script id="faq-header-template" type="text/template">
+                <h2>{{faq-header.subtitle}}</h2>
+                <h1>{{faq-header.title}}</h1>
+                <p>{{faq-header.description}}</p>
+            </script>
+            <div id="faq-header-target" class="faq-header content-header"></div>
+        </header>
+        <section>
+            <div class="faq-container">
+                <script id="faq-categories-template" type="text/template">
+                    {{#faq-content.categories}}
+                        <button class="faq-category-btn" data-category-id="{{id}}">{{name}}</button>
+                    {{/faq-content.categories}}
+                </script>
+                <div class="faq-categories-wrapper">
+                    <div id="faq-categories-target" class="faq-categories-carousel"></div>
+                </div>
+
+                <script id="faq-questions-template" type="text/template">
+                    <div class="faq-questions-container">
+                        {{#questions}}
+                            <div class="faq-question-item">
+                                <button class="faq-question-btn">
+                                    <span class="faq-question-text">{{question}}</span>
+                                    <span class="faq-question-toggle">+</span>
+                                </button>
+                                <div class="faq-answer" style="display: none;">
+                                    <p>{{{answer}}}</p>
+                                </div>
+                            </div>
+                        {{/questions}}
+                    </div>
+                </script>
+                <div id="faq-questions-target"></div>
+            </div>
+        </section>
+
+        <section>
+            <script id="form-reminder-template" type="text/template">
+                <div class="form-reminder">
+                    <h1>{{form-reminder.title}}</h1>
+                    <p>{{form-reminder.subtitle}}</p>
+                    <a href="{{form-reminder.buttonUrl}}" target="_blank">
+                        <button>{{form-reminder.buttonLabel}}</button>
+                    </a>
+                </div>
+            </script>
+            <div id="form-reminder-target" class="form-reminder-section"></div>
         </section>
 
     </main>

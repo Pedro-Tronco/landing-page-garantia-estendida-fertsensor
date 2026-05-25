@@ -10,7 +10,7 @@
     --cream: #f4f6f8;
     --text: #1a1a1a;
     --text-muted: #5a6670;
-    --navy-light: #004279;
+    --navy-light: #004680;
     --navy-dark: #002d4a;
     --orange-background: #FF6A3933;
     --navy-background: #00386533;
@@ -37,6 +37,17 @@
     100% {
         transform: translateY(0);
     }
+}
+
+@keyframes growVertical {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 * {
@@ -445,7 +456,7 @@ a:visited {
     font-family: var(--font-body);
     font-size: 17px;
     color: var(--text-muted);
-    max-width: 60%;
+    max-width: max(60%, 400px);
     line-height: 1.6;
     font-weight: 400;
 }
@@ -471,7 +482,7 @@ a:visited {
     padding: 0;
     width: 100%;
     margin: 0;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
@@ -547,4 +558,175 @@ a:visited {
 
 .install-observation p {
     margin: 0;
+}
+
+.faq-container {
+    padding: 12px 5%;
+    margin: 0 20px;
+    gap: 20px;
+}
+
+.faq-categories-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin: 5px 0;
+}
+
+.faq-categories-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+}
+
+.faq-category-btn {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--navy);
+    color: var(--white);
+    font-family: var(--font-ui);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.faq-category-btn:hover {
+    background-color: var(--navy-light);
+    color: var(--white);
+}
+
+.faq-category-btn.active {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.faq-questions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 97%;
+    justify-self: center;
+    padding: 10px 0;
+    margin-bottom: 50px;
+}
+
+.faq-question-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    padding: 10px 0;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    width: 100%;
+    color: var(--navy);
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+.faq-question-btn:hover {
+    color: var(--navy-light);
+}
+
+.faq-question-btn.active,
+.faq-question-item.open .faq-question-btn {
+    color: var(--orange);
+}
+
+.faq-question-toggle {
+    margin-left: 20px;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.faq-answer {
+    padding: 3px 15px;
+    margin-left: 2px;
+    border-left: 3px solid var(--orange);
+    display: none;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+
+    transform-origin: top;
+    animation: growVertical 0.2s ease-out forwards;
+}
+
+.faq-answer h3 {
+    font-family: var(--font-title);
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 6px;
+}
+
+.faq-answer ul {
+    padding-left: 20px;
+    margin: 10px 0;
+    margin-bottom: 18px;
+}
+
+.faq-answer li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.faq-answer li::marker {
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.faq-answer strong {
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.form-reminder-section {
+    background-color: var(--navy);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: max(300px, 35svh);
+}
+
+.form-reminder-section h1 {
+    font-family: var(--font-title);
+    color: var(--white);
+    font-size: max(28px, 3vw);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.form-reminder-section p {
+    font-family: var(--font-body);
+    color: var(--gray);
+    font-size: max(17px);
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+.form-reminder-section button {
+    font-size: 18px;
+    font-family: var(--font-body);
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: 500;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-reminder-section button:hover {
+    background-color: var(--orange-bright);
 }

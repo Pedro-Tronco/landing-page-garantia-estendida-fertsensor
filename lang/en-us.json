@@ -10,7 +10,8 @@
                 "navigation": "install-header-target"
             },
             {
-                "name": "FAQ"
+                "name": "FAQ",
+                "navigation": "faq-header-target"
             }
         ]
     },
@@ -241,5 +242,124 @@
                 "description": "Use original FertiSystem batteries. Damage to wires, connectors, or seals during replacement is not covered by the warranty."
             }
         }
-    ]
+    ],
+    "faq-header": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "— Questions",
+        "description": "Choose a category to find your answer quickly."
+    },
+    "faq-content": {
+        "categories": [
+            {
+                "name": "Warranty and registration",
+                "id": 1,
+                "questions": [
+                    {
+                        "question": "What do I gain by registering my system?",
+                        "answer": "Your warranty is extended from 12 to 24 months at no additional cost. Coverage includes manufacturing defects in the Fert Sensor and the AT200 Monitor, as long as installation, operation, and maintenance follow the instructions in the manual."
+                    },
+                    {
+                        "question": "Do I have a deadline to register?",
+                        "answer": "Yes. Registration must be completed within 30 days after installation. After this period, the benefit may no longer be available."
+                    },
+                    {
+                        "question": "What happens if I do not register?",
+                        "answer": "Your system keeps the standard 12-month warranty from the invoice date. You only lose the additional 12 months of the extended warranty."
+                    },
+                    {
+                        "question": "What does the warranty cover and not cover?",
+                        "answer": "<h3>Covers:</h3> <ul> <li>Manufacturing defects in the Fert Sensor and AT200 Monitor</li> <li>Component failures under normal use conditions</li> </ul> <h3>Does not cover:</h3> <ul> <li>Power battery (consumable item)</li> <li>Incorrect installation or installation outside the manual standards</li> <li>Misuse, negligence, or lack of maintenance</li> <li>Disassembly or repair by unauthorized personnel</li> <li>External damage caused by the user</li> <li>Natural wear of components</li> </ul>"
+                    },
+                    {
+                        "question": "How do I claim the warranty?",
+                        "answer": "Contact Thunderstruck or J2M directly and provide the purchase invoice number. The warranty is a <strong>carry-in</strong> warranty — the product must be sent in for evaluation. Technicians do not visit the customer for installations or repairs."
+                    }
+                ]
+            },
+            {
+                "name": "Fert Sensor",
+                "id": 2,
+                "questions": [
+                    {
+                        "question": "What does the Fert Sensor do?",
+                        "answer": "It monitors the flow of fertilizer (granular input) through each line of the implement in real time. It detects blockages, interruptions, and irregular distribution — ensuring uniform application and preventing losses in the field."
+                    },
+                    {
+                        "question": "Which application types are compatible?",
+                        "answer": "The system is compatible with <strong>Air Drill</strong>, <strong>Gravity</strong>, and <strong>Strip Till</strong>. For Air Drill, Gravity, and Strip Till, use the plastic clamp included with the product to secure it with the Hellermann Anti-UV strap."
+                    },
+                    {
+                        "question": "Which conduits are compatible?",
+                        "answer": "Conduits from 25 mm to 100 mm in diameter. The recommended types are <strong>corrugated</strong> and <strong>hose</strong>. Rigid plastic conduits are not recommended."
+                    },
+                    {
+                        "question": "Does the sensor need cables or charging?",
+                        "answer": "No. The Fert Sensor is <strong>completely wireless</strong>. It communicates via 915 MHz RF and is powered by a non-rechargeable lithium battery (3.6V – 4000mAh), with an approximate lifespan of 2,500 hours of use."
+                    },
+                    {
+                        "question": "The sensor stopped appearing on the monitor — what should I do?",
+                        "answer": "Check whether the sensor is in <strong>power-saving mode</strong> (sleeping). Tap it lightly with a screwdriver to wake it up. If the issue persists, check the low battery warning on the monitor. If in doubt, contact technical support."
+                    }
+                ]
+            },
+            {
+                "name": "AT200 Monitor",
+                "id": 3,
+                "questions": [
+                    {
+                        "question": "How many sensors does the AT200 support?",
+                        "answer": "The AT200 Monitor supports up to <strong>120 sensors</strong> per monitor, communicating exclusively with FertiSystem sensors via 915 MHz RF."
+                    },
+                    {
+                        "question": "Does the monitor work on tractors without a cab?",
+                        "answer": "Yes. The AT200 can be installed on tractors with or without a cab. See the installation recommendations in the manual for the correct setup in each case."
+                    },
+                    {
+                        "question": "What is the supply voltage?",
+                        "answer": "The monitor operates on <strong>12V DC</strong>, connected directly to the tractor battery. The 5 m power cable comes with the product, with an external 3A blade fuse."
+                    },
+                    {
+                        "question": "Is the monitor rain resistant?",
+                        "answer": "Yes. The AT200 Monitor has <strong>IP54</strong> protection — resistant to splashes of water from any direction. It is not intended for immersion or direct jets of water."
+                    },
+                    {
+                        "question": "How do I set the date and time?",
+                        "answer": "Go to <strong>Menu → Clock</strong> and adjust day, month, year, hour, and minute using <strong>▲▼</strong>. Confirm each field with <strong>✓</strong>. The correct clock setting is important for alarm history."
+                    }
+                ]
+            },
+            {
+                "name": "Operation",
+                "id": 4,
+                "questions": [
+                    {
+                        "question": "What does \"MANEUVER\" mean on the screen?",
+                        "answer": "\"MANEUVER\" indicates that flow is interrupted across all or many lines at the same time — usually due to stopping the implement, turning at the end of the field, or refilling. It is not a fault alarm. When flow resumes, the monitor returns to \"FLOW OK.\""
+                    },
+                    {
+                        "question": "What should I do when \"FAULT\" appears?",
+                        "answer": "The indicated line has no flow while the others are normal. Check the corresponding line: there may be <strong>a blockage in the conduit</strong> or <strong>lack of material</strong> in that line’s metering unit."
+                    },
+                    {
+                        "question": "How do I use the alarm history?",
+                        "answer": "Go to <strong>Menu → History</strong> and navigate with <strong>▲▼</strong>. It records: monitor on/off events, maneuvers, start and end of planting, and each alarm with line number, date, and duration in seconds."
+                    },
+                    {
+                        "question": "Does the sensor with \"LOW BATTERY\" stop monitoring?",
+                        "answer": "Not immediately. The alert appears in advance. The sensor continues operating for a period, but it is important to replace the battery so you do not lose monitoring on that line."
+                    },
+                    {
+                        "question": "Can I use it with any granular input?",
+                        "answer": "Yes. The Fert Sensor is designed to monitor granular materials in general — fertilizers, cover crop seeds, and other inputs — in planting and cultivation operations for soybeans, corn, sugarcane, and more."
+                    }
+                ]
+            }
+        ]
+    },
+    "form-reminder": {
+        "title": "Ready to register?",
+        "subtitle": "It takes less than 5 minutes — and doubles your coverage.",
+        "buttonLabel": "Fill out the registration form",
+        "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform"
+    }
 }
