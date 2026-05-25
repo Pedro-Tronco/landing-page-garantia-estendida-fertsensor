@@ -754,8 +754,8 @@ hr {
     display: flex;
     overflow-x: auto;
     align-items: center;
-    justify-content: space-around;
-    width: 90%;
+    justify-content: center;
+    width: 100%;
 }
 
 .footer-buttons a {
