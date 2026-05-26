@@ -754,8 +754,8 @@ hr {
     display: flex;
     overflow-x: auto;
     align-items: center;
-    justify-content: center;
     width: 100%;
+    justify-content: safe center;
 }
 
 .footer-docs-button {
