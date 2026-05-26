@@ -216,10 +216,10 @@
     <footer>
         <script id="footer-template" type="text/template">
             <div class="footer-container">
-                <nav class="footer-buttons">
-                    {{#footer.buttons}}
-                        <a href="{{url}}" target="_blank">{{name}}</a>
-                    {{/footer.buttons}}
+                <nav class="footer-docs">
+                    {{#footer.docsButtons}}
+                        <a href="{{url}}" target="_blank" class="footer-docs-button">{{name}}</a>
+                    {{/footer.docsButtons}}
                 </nav>
                 
                 <hr>
@@ -230,18 +230,11 @@
                     </a>
                     <p class="footer-copyright">{{footer.copyright}}</p>
                     <nav class="footer-network-buttons">
-                        <a href="https://www.facebook.com/FertiSystem/" target="_blank">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/fertisystem/" target="_blank">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/fertisystem/" target="_blank">
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UC4oIAqM8uKMc3sUUWeFCQRg" target="_blank">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
+                        {{#footer.networkButtons}}
+                            <a href="{{url}}" target="_blank">
+                                <i class="{{icon}}"></i>
+                            </a>
+                        {{/footer.networkButtons}}
                     </nav>
                 </div>
 

@@ -364,7 +364,7 @@
     },
     "footer": {
         "webcommerceUrl": "https://www.fertisystem.com.br/produtos",
-        "buttons": [
+        "docsButtons": [
             {
                 "name": "Termos de Uso",
                 "url": "https://www.fertisystem.com.br/p/termos-de-uso"
@@ -388,6 +388,24 @@
             {
                 "name": "Ouvidoria",
                 "url": "https://www.fertisystem.com.br/p/ouvidoria"
+            }
+        ],
+        "networkButtons": [
+            {
+                "icon": "fa-brands fa-facebook-f",
+                "url": "https://www.facebook.com/FertiSystem/"
+            },
+            {
+                "icon": "fa-brands fa-instagram",
+                "url": "https://www.instagram.com/fertisystem/"
+            },
+            {
+                "icon": "fa-brands fa-linkedin-in",
+                "url": "https://www.linkedin.com/company/fertisystem/"
+            },
+            {
+                "icon": "fa-brands fa-youtube",
+                "url": "https://www.youtube.com/channel/UC4oIAqM8uKMc3sUUWeFCQRg"
             }
         ],
         "copyright": "©2026 J2M Industria e Comercio LTDA. Todos os direitos reservados. CNPJ: 05.039.976/0001-91"

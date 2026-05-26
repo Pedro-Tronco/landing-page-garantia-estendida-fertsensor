@@ -749,7 +749,7 @@ hr {
     width: auto;
 }
 
-.footer-buttons {
+.footer-docs {
     margin-bottom: 20px;
     display: flex;
     overflow-x: auto;
@@ -758,7 +758,7 @@ hr {
     width: 100%;
 }
 
-.footer-buttons a {
+.footer-docs-button {
     font-family: var(--font-ui);
     font-weight: 500;
     font-size: 14px;
@@ -770,7 +770,11 @@ hr {
     margin: 10px;
 }
 
-.footer-buttons a:hover {
+.footer-docs-button:visited {
+    color: var(--white);
+}
+
+.footer-docs-button:hover {
     color: var(--blue);
 }
 
