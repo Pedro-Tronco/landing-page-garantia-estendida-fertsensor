@@ -27,10 +27,12 @@
         <div id="nav-buttons-target" class="nav-buttons"></div>
 
         <div class="lang-dropdown">
-            <select id="lang-toggle" class="lang-selection">
-                <option value="pt-br">PT 🇧🇷</option>
-                <option value="en-us">EN 🇺🇸</option>
-            </select>
+            <script id="lang-toggle-template" type="text/template">
+                {{#languages}}
+                    <option value="{{code}}">{{label}}</option>
+                {{/languages}}
+            </script>
+            <select id="lang-toggle" class="lang-selection"></select>
         </div>
     </nav>
 
@@ -75,7 +77,6 @@
                             </form>
                             <p>{{hero.form.note}}</p>
                         </div>
-                        <!-- <img src="img/FertSensor.png" alt="FertSensor"> -->
                         <div>
                             <a href="#install-header-target" class="hero-scroll-hint">
                                 <p>{{hero.scrollHintLabel}}</p>

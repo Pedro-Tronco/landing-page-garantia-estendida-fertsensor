@@ -7,7 +7,7 @@ async function loadPage(lang = 'pt-br') {
     try {
         const response = await fetch(`lang/${lang}.json`);
         const data = await response.json();
-        currentFaqData = data['faq-content'] || data['faq_content'] || data.faqContent || data.faq;
+        currentFaqData = data['faq-content'];
 
         document.querySelectorAll('[id$="-template"]').forEach((template) => {
             const keyword = template.id.replace('-template', '');
@@ -27,8 +27,7 @@ async function loadPage(lang = 'pt-br') {
         }
 
         if (currentFaqData?.categories?.length) {
-            const categoryExists = currentFaqData.categories.some((cat) => cat.id == activeFaqCategoryId);
-            if (!categoryExists) {
+            if (!currentFaqData.categories.some((cat) => cat.id == activeFaqCategoryId)) {
                 activeFaqCategoryId = currentFaqData.categories[0].id;
             }
         }
@@ -46,10 +45,11 @@ function initFaqDelegatedListeners() {
     if (categoriesTarget) {
         categoriesTarget.addEventListener('click', (event) => {
             const button = event.target.closest('.faq-category-btn');
-            if (!button) return;
-            const categoryId = parseInt(button.dataset.categoryId, 10);
-            if (!Number.isNaN(categoryId)) {
-                setActiveFaqCategory(categoryId);
+            if (button) {
+                const categoryId = parseInt(button.dataset.categoryId, 10);
+                if (!isNaN(categoryId)) {
+                    setActiveFaqCategory(categoryId);
+                }
             }
         });
     }
@@ -68,8 +68,7 @@ function initFaqDelegatedListeners() {
                 item.querySelector('.faq-answer').style.display = 'none';
                 item.querySelector('.faq-question-toggle').textContent = '+';
                 item.classList.remove('open');
-                const btn = item.querySelector('.faq-question-btn');
-                if (btn) btn.classList.remove('active');
+                item.querySelector('.faq-question-btn')?.classList.remove('active');
             });
 
             if (!isOpen) {
@@ -86,10 +85,9 @@ function setActiveFaqCategory(categoryId) {
     if (!currentFaqData?.categories) return;
 
     activeFaqCategoryId = categoryId;
-
-    let activeCategory = currentFaqData.categories.find((cat) => cat.id === categoryId || cat.id == categoryId);
-    if (!activeCategory) {
-        activeCategory = currentFaqData.categories[0];
+    const activeCategory = currentFaqData.categories.find((cat) => cat.id == categoryId) || currentFaqData.categories[0];
+    
+    if (activeCategory?.id !== categoryId) {
         activeFaqCategoryId = activeCategory.id;
     }
 
@@ -97,20 +95,75 @@ function setActiveFaqCategory(categoryId) {
     const questionsTarget = document.getElementById('faq-questions-target');
 
     if (questionsTemplate && questionsTarget) {
-        questionsTarget.innerHTML = activeCategory
-            ? Mustache.render(questionsTemplate.innerHTML, { questions: activeCategory.questions })
-            : '';
+        questionsTarget.innerHTML = Mustache.render(questionsTemplate.innerHTML, { questions: activeCategory?.questions || [] });
     }
 
     document.querySelectorAll('.faq-category-btn').forEach((btn) => {
-        const btnCategoryId = parseInt(btn.dataset.categoryId, 10);
-        btn.classList.toggle('active', btnCategoryId === activeFaqCategoryId);
+        btn.classList.toggle('active', parseInt(btn.dataset.categoryId, 10) === activeFaqCategoryId);
     });
+}
+
+async function getAvailableLangs() {
+    try {
+        const response = await fetch('lang/manifest.json');
+        const data = await response.json();
+        return data.languages || ['pt-br'];
+    } catch (error) {
+        console.error('Failed to fetch language manifest:', error);
+        return ['pt-br'];
+    }
+}
+
+function chooseLangFromNavigator(navigatorLanguages = [], available = ['pt-br']) {
+    const candidates = [
+        ...navigatorLanguages.map(s => String(s || '').toLowerCase()),
+        (navigator.language || '').toLowerCase()
+    ].filter(Boolean);
+
+    // Try exact match
+    for (const c of candidates) {
+        const normalized = c.replace('_', '-');
+        if (available.includes(normalized)) return normalized;
+    }
+
+    // Try primary subtag match (en-GB -> en-us)
+    for (const c of candidates) {
+        const primary = c.split('-')[0];
+        const found = available.find(a => a.split('-')[0] === primary);
+        if (found) return found;
+    }
+
+    return available[0];
+}
+
+async function populateLangToggle(availableLangs) {
+    const langData = await Promise.all(
+        availableLangs.map(async (lang) => {
+            try {
+                const response = await fetch(`lang/${lang}.json`);
+                const data = await response.json();
+                return { code: lang, label: data.langLabel || lang.toUpperCase() };
+            } catch (error) {
+                console.error(`Failed to load lang metadata for ${lang}:`, error);
+                return { code: lang, label: lang.toUpperCase() };
+            }
+        })
+    );
+
+    const template = document.getElementById('lang-toggle-template');
+    const select = document.getElementById('lang-toggle');
+    if (template && select) {
+        select.innerHTML = Mustache.render(template.innerHTML, { languages: langData });
+    }
 }
 
 langToggle.addEventListener('change', (e) => {
     loadPage(e.target.value);
 });
 
-const savedLang = localStorage.getItem('pageLang') || 'pt-br';
-loadPage(savedLang);
+(async () => {
+    const available = await getAvailableLangs();
+    await populateLangToggle(available);
+    const savedLang = localStorage.getItem('pageLang') || chooseLangFromNavigator(navigator.languages, available);
+    loadPage(savedLang);
+})();
