@@ -9,6 +9,13 @@ async function loadPage(lang = 'pt-br') {
         const data = await response.json();
         currentFaqData = data['faq-content'];
 
+        // set document title from lang file (use "pageTitle" or fallback)
+        if (data.pageTitle) {
+            document.title = data.pageTitle;
+        } else if (data.page?.title) {
+            document.title = data.page.title;
+        }
+
         document.querySelectorAll('[id$="-template"]').forEach((template) => {
             const keyword = template.id.replace('-template', '');
             const target = document.getElementById(`${keyword}-target`);
