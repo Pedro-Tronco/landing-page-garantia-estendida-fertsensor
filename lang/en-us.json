@@ -68,7 +68,7 @@
             "buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform",
             "note": "⏱ Register within 30 days after installation"
         },
-        "scrollHintLabel": "Learn more"
+        "scrollHintLabel": "Installation Guide"
     },
     "install-header": {
         "title": "System installation and setup",
@@ -79,7 +79,7 @@
         {
             "title": "1- Installing the Fert Sensor on the implement",
             "description": "Before installing, choose the best position on the implement. Avoid contact between the sensor and metal or moving parts.",
-            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoUrl": "https://www.youtube.com/embed/S878uN8BzkQ?si=RCy4DMGrduynFURJ",
             "videoToRight": true,
             "steps": [
                 {
@@ -106,7 +106,7 @@
         {
             "title": "2- Installing the AT200 Monitor on the tractor",
             "description": "The monitor can be mounted with a suction cup (on glass) or a clamp (on bars). The antenna must always remain vertical.",
-            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoUrl": "https://www.youtube.com/embed/KK_xTjZErrs?si=9FXBEOZYtEKu2rWe",
             "videoToRight": false,
             "steps": [
                 {
@@ -133,7 +133,7 @@
         {
             "title": "3- Sensor identification and addressing",
             "description": "Each sensor must be identified with the row number and addressed to the monitor before operation.",
-            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoUrl": "https://www.youtube.com/embed/nEtj1OW5WVI?si=i1zm4gCJh3kmdTzG",
             "videoToRight": true,
             "steps": [
                 {
@@ -163,7 +163,7 @@
         {
             "title": "4- Main screen and status reading",
             "description": "On the AT200 main screen, you can monitor the real-time status of all monitored lines.",
-            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoUrl": "https://www.youtube.com/embed/QkSdmvlWtKw?si=UYXcsG7vRWOteJfi",
             "videoToRight": false,
             "steps": [
                 {
@@ -190,7 +190,7 @@
         {
             "title": "5- Menu settings",
             "description": "The AT200 menu offers brightness, volume, clock, and sensor management adjustments.",
-            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoUrl": "https://www.youtube.com/embed/nmoFdtXSFUI?si=6OlxCyBtz8nl31GC",
             "videoToRight": true,
             "steps": [
                 {
@@ -214,7 +214,7 @@
         {
             "title": "6- Replacing the Fert Sensor battery",
             "description": "3.6V Lithium Battery – 4000mAh, with an approximate lifespan of ~2,500 hours. The monitor warns you in advance when it needs to be replaced.",
-            "videoUrl": "https://youtube.com/embed/aqz-KE-bpKQ",
+            "videoUrl": "https://www.youtube.com/embed/-XRRZL1vB7c?si=_OR4xP69mrxqyQ58",
             "videoToRight": false,
             "steps": [
                 {
