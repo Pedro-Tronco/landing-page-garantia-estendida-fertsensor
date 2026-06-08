@@ -3,7 +3,7 @@ let currentFaqData = null;
 let activeFaqCategoryId = 1;
 let faqListenersInitialized = false;
 
-async function loadPage(lang = 'pt-br') {
+async function loadPage(lang = 'en-us') {
     try {
         const response = await fetch(`lang/${lang}.json`);
         const data = await response.json();
@@ -114,14 +114,14 @@ async function getAvailableLangs() {
     try {
         const response = await fetch('lang/manifest.json');
         const data = await response.json();
-        return data.languages || ['pt-br'];
+        return data.languages || ['en-us'];
     } catch (error) {
         console.error('Failed to fetch language manifest:', error);
-        return ['pt-br'];
+        return ['en-us'];
     }
 }
 
-function chooseLangFromNavigator(navigatorLanguages = [], available = ['pt-br']) {
+function chooseLangFromNavigator(navigatorLanguages = [], available = ['en-us']) {
     const candidates = [
         ...navigatorLanguages.map(s => String(s || '').toLowerCase()),
         (navigator.language || '').toLowerCase()
