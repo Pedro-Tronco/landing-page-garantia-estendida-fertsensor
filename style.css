@@ -17,8 +17,8 @@
 
     --font-mono: monospace;
     --font-ui: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-title: 'Outfit', sans-serif;
-    --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-title: 'M PLUS 1', sans-serif;
+    --font-body: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 @media (max-width: 680px) {
@@ -291,7 +291,7 @@ hr {
 }
 
 .hero-card h2 {
-    font-family: var(--font-body);
+    font-family: var(--font-ui);
     font-size: max(48px, 4vw);
     font-weight: 700;
 }
