@@ -8,7 +8,7 @@
                 "navigation": "hero-target"
             },
             {
-                "name": "Guia de uso",
+                "name": "Instalação",
                 "navigation": "install-header-target"
             },
             {
@@ -78,51 +78,51 @@
     "install-section": [
         {
             "title": "1- Instalação do Fert Sensor no implemento",
-            "description": "Antes de instalar, defina a melhor posição no implemento. Evite contato do sensor com partes metálicas ou móveis.",
+            "description": "Antes de instalar, defina a melhor posição no implemento.",
             "videoUrl": "https://www.youtube.com/embed/S878uN8BzkQ?si=RCy4DMGrduynFURJ",
             "videoToRight": true,
             "steps": [
                 {
-                    "description": "Fixe o sensor com a cinta Anti-UV inclusa no produto."
+                    "description": "Fixe o sensor com a abraçadeira plástica inclusa no produto."
                 },
                 {
-                    "description": "Passe a cinta pelo canal frontal do sensor e abrace o mangote com as abas."
+                    "description": "Passe a cinta pelo canal frontal do sensor e abraçe o tubo condutor."
                 },
                 {
-                    "description": "Aperte até o sensor ficar fixo, sem deformar o mangote."
+                    "description": "Aperte até o sensor ficar fixo, sem deformar o tubo condutor."
                 },
                 {
-                    "description": "Teste chacoalhando o mangote — simule o movimento do implemento."
+                    "description": "Teste chacoalhando o conjunto — simule o movimento do implemento."
                 },
                 {
                     "description": "Corte a sobra da cinta após fixação."
+                },
+                {
+                    "description": "Garanta que os sensores estão no mesmo alinhamento e posição."
                 }
             ],
             "observation": {
-                "title": "Observação:",
-                "description": "O sensor é totalmente sem fios e resistente a poeira e água — não são necessárias manutenções periódicas no campo."
+                "title": "Atenção:",
+                "description": "O sensor não pode entrar em contato com outras partes do implemento."
             }
         },
         {
             "title": "2- Instalação do Monitor AT200 no trator",
-            "description": "O monitor pode ser fixado com ventosa (em vidro) ou abraçadeira (em barras). A antena deve ficar sempre na vertical.",
+            "description": "Lembre-se de instalar o monitor em uma posição confortável para o operador.",
             "videoUrl": "https://www.youtube.com/embed/KK_xTjZErrs?si=9FXBEOZYtEKu2rWe",
             "videoToRight": false,
             "steps": [
                 {
-                    "description": "<strong>Ventosa:</strong> limpe a superfície, encaixe, pressione firmemente e gire o fecho."
-                },
-                {
-                    "description": "<strong>Abraçadeira:</strong> posicione o monitor, passe a abraçadeira e aperte o parafuso até fixar."
+                    "description": "Limpe a superfície, encaixe a ventosa na parte traseira do monitor, pressione firmemente e gire o fecho."
                 },
                 {
                     "description": "Direcione o monitor para o assento do operador."
                 },
                 {
-                    "description": "Mantenha a antena sempre na vertical (alcance de até 20m com barreiras)."
+                    "description": "Mantenha a antena sempre na vertical."
                 },
                 {
-                    "description": "Evite posicionar atrás das colunas da cabine."
+                    "description": "Evite posicionar atrás das colunas da cabine e perto de dispositivos que podem causar interferência (como radiocomunicadores)."
                 }
             ],
             "observation": {
@@ -137,27 +137,24 @@
             "videoToRight": true,
             "steps": [
                 {
-                    "description": "Na parte frontal do sensor há 3 campos — use caneta permanente."
+                    "description": "Na parte frontal do sensor há 3 campos — use caneta permanente e preencha com o número da linha (ex.: 001, 002...)."
                 },
                 {
-                    "description": "Preencha com o número da linha (ex.: 001, 002...)."
+                    "description": "No monitor, pressione <strong> [ MENU ] → [ SENSOR ] → [ ENDEREÇAR ]</strong> ."
                 },
                 {
-                    "description": "No monitor, pressione <span style='padding: 0 5px;'><strong>Menu → Sensor → Endereçar</strong></span>."
-                },
-                {
-                    "description": "Selecione o número da linha com ▲▼ e confirme <b>✓</b>."
+                    "description": "Selecione o número da linha com <strong>❨v❩ ❨˄❩</strong> e confirme <strong>❨✓❩</strong>."
                 },
                 {
                     "description": "Encoste o símbolo do sensor no símbolo do monitor por ~5 segundos."
                 },
                 {
-                    "description": "Aguarde a confirmação e repita para cada sensor."
+                    "description": "Aguarde a confirmação sonora e visual e repita para cada sensor."
                 }
             ],
             "observation": {
                 "title": "Observação:",
-                "description": "Se o sensor não for reconhecido, pode estar em modo de economia. Use uma chave de fenda para dar leves batidas e ativá-lo."
+                "description": "Se o sensor não for reconhecido, pode estar em modo de economia. Dê leves batidas no sensor para ativá-lo."
             }
         },
         {
@@ -167,76 +164,85 @@
             "videoToRight": false,
             "steps": [
                 {
-                    "description": "<strong>FLUXO OK / setas (›):</strong> todas as linhas com fluxo normal"
+                    "description": "<strong>FLUXO OK (setas >>>):</strong> todas as linhas com fluxo normal."
                 },
                 {
-                    "description": "<strong>MANOBRA:</strong> fluxo interrompido por parada ou manobra do implemento"
+                    "description": "<strong>MANOBRA:</strong> fluxo interrompido por parada ou manobra do implemento."
                 },
                 {
-                    "description": "<strong>FALHA + número da linha:</strong> entupimento ou falta de material — verifique a linha indicada"
+                    "description": "<strong>FALHA + número da linha:</strong> entupimento ou falta de material — verifique a linha indicada."
                 },
                 {
-                    "description": "<strong>PILHA FRACA:</strong> bateria do sensor precisa ser trocada em breve"
-                },
-                {
-                    "description": "O número no canto superior direito indica linhas endereçadas e comunicando"
+                    "description": "<strong>PILHA FRACA:</strong> bateria do sensor precisa ser trocada em breve."
                 }
             ],
             "observation": {
-                "title": "Histórico:",
-                "description": "Acesse <strong>Menu → Histórico</strong> para ver o registro completo de alarmes com data, hora e duração — útil para diagnóstico de problemas recorrentes."
+                "title": "Observação:",
+                "description": "O número no canto inferior direito indica linhas endereçadas e comunicando."
             }
         },
         {
             "title": "5- Configurações do menu",
-            "description": "O menu do AT200 oferece ajustes de brilho, volume, relógio e gerenciamento de sensores.",
+            "description": "Pressione <strong>❨X❩</strong> na tela principal para acessar e sair do menu de configurações do monitor.",
             "videoUrl": "https://www.youtube.com/embed/nmoFdtXSFUI?si=6OlxCyBtz8nl31GC",
             "videoToRight": true,
             "steps": [
                 {
-                    "description": "<strong>Brilho/Volume:</strong> 5 níveis — Menu → Brilho ou Volume → ▲▼ → ✓"
+                    "description": "<strong>Idioma: [ MENU ] → [ SISTEMA / SYSTEM ] → [ IDIOMA / LANGUAGE ] </strong> — Alterar idioma (PT-BR/EN-US/ES-ES)."
                 },
                 {
-                    "description": "<strong>Relógio:</strong> Menu → Relógio → ajuste dia, mês, ano, hora e minuto"
+                    "description": "<strong>Histórico: [ MENU ] → [ HISTÓRICO ] </strong> — Mostrar registro completo de alarmes com data, hora e duração (recomendado para diagnóstico de problemas recorrentes)."
                 },
                 {
-                    "description": "<strong>Ler sensor:</strong> Menu → Sensor → Ler — verificar linha e monitor configurados"
+                    "description": "<strong>Brilho/Volume:  [ MENU ] → [ BRILHO / VOLUME ] → ❨v❩ ❨˄❩ → ❨✓❩ </strong> — 5 níveis de ajuste."
                 },
                 {
-                    "description": "<strong>Desabilitar:</strong> Menu → Sensor → Desabilitar — remove linha da rede"
+                    "description": "<strong>Relógio: [ MENU ] → [ SISTEMA ] → [ RELÓGIO ] </strong> — Ajustar dia, mês, ano, hora e minuto."
+                },
+                {
+                    "description": "<strong>Ler sensor: [ MENU ] → [ SENSOR ] → [ LER ] </strong> — Verificar linha e monitor configurados."
+                },
+                {
+                    "description": "<strong>Desabilitar: [ MENU ] → [ SENSOR ] → [ DESABILITAR ] </strong> — Remover linha da rede."
+                },
+                {
+                    "description": "<strong>Nível da Bateria: [ MENU ] → [ SISTEMA ] → [ NÍVEL BAT. ] </strong> — Verificar nível da bateria dos sensores."
                 }
             ],
             "observation": {
-                "title": "Atenção:",
-                "description": "Para cancelar qualquer operação, pressione <strong>✕</strong> — o monitor retorna à tela principal imediatamente."
+                "title": "Dica:",
+                "description": "Para cancelar qualquer operação, pressione <strong>❨X❩</strong> — o monitor retorna à tela principal imediatamente."
             }
         },
         {
             "title": "6- Troca de bateria do Fert Sensor",
-            "description": "Bateria Lítio 3,6V – 4000mAh, com vida útil de ~2.500 horas. O monitor avisa com antecedência quando precisar trocar.",
+            "description": "O monitor avisa com antecedência quando precisar trocar.",
             "videoUrl": "https://www.youtube.com/embed/-XRRZL1vB7c?si=_OR4xP69mrxqyQ58",
             "videoToRight": false,
             "steps": [
                 {
-                    "description": "Retire o sensor do implemento — <strong>não trocar com o sensor instalado</strong>"
+                    "description": "Retire o sensor do implemento."
                 },
                 {
-                    "description": "Com chave Philips, solte os 4 parafusos e remova a tampa"
+                    "description": "Com chave Philips, solte os 4 parafusos e remova a tampa."
                 },
                 {
-                    "description": "Puxe a bateria e a espuma para acessar o conector"
+                    "description": "Puxe a bateria e a espuma para acessar o conector."
                 },
                 {
-                    "description": "Desconecte com cuidado — sem força excessiva"
+                    "description": "Desconecte com cuidado, puxando pelo conector e não pelo fio."
                 },
                 {
-                    "description": "Conecte a nova bateria (encaixe suave confirma posição correta)"
+                    "description": "Conecte a nova bateria (de forma que o encaixe seja suave, confirmado alinhamento correto)."
                 },
                 {
-                    "description": "Recoloque espuma, bateria, tampa e parafusos"
+                    "description": "Garanta que o anel de vedadação está no local devido."
                 },
                 {
-                    "description": "O sensor volta a comunicar automaticamente, mantendo a configuração"
+                    "description": "Recoloque espuma, bateria, tampa e parafusos."
+                },
+                {
+                    "description": "O sensor volta a comunicar automaticamente, mantendo a configuração."
                 }
             ],
             "observation": {
@@ -269,12 +275,12 @@
                         "answer": "Seu sistema mantém a garantia padrão de 12 meses a partir da data da nota fiscal. Você apenas perde os 12 meses adicionais da garantia estendida."
                     },
                     {
-                        "question": "O que a garantia cobre e não cobre?",
-                        "answer": "<h3>Cobre:</h3> <ul> <li>Defeitos de fabricação no Fert Sensor e Monitor AT200</li> <li>Falhas de componentes em condições normais de uso</li> </ul> <h3>Não cobre:</h3> <ul> <li>Bateria de energia (item consumível)</li> <li>Instalação incorreta ou fora do padrão do manual</li> <li>Mau uso, negligência ou falta de manutenção</li> <li>Desmontagem ou reparo por pessoa não autorizada</li> <li>Danos externos causados pelo usuário</li> <li>Desgaste natural dos componentes</li> </ul>"
-                    },
-                    {
                         "question": "Como aciono a garantia?",
                         "answer": "Entre em contato com a Thunderstruck ou diretamente com a J2M informando o número da invoice de compra. A garantia é do tipo <strong>balcão</strong> — o produto deve ser encaminhado para análise. Técnicos não realizam visitas ao cliente para instalações ou reparos."
+                    },
+                    {
+                        "question": "O que a garantia cobre e não cobre?",
+                        "answer": "<h3>Cobre:</h3> <ul> <li>Defeitos de fabricação no Fert Sensor e Monitor AT200.</li> <li>Falhas de componentes em condições normais de uso.</li> </ul> <h3>Não cobre:</h3> <ul> <li>Bateria de energia (item consumível).</li> <li>Instalação incorreta ou fora do padrão do manual.</li> <li>Mau uso, negligência ou falta de manutenção.</li> <li>Desmontagem ou reparo por pessoa não autorizada.</li> <li>Danos externos causados pelo usuário.</li> <li>Desgaste natural dos componentes.</li> </ul>"
                     }
                 ]
             },
@@ -283,12 +289,8 @@
                 "id": 2,
                 "questions": [
                     {
-                        "question": "O que o Fert Sensor faz?",
-                        "answer": "Monitora a passagem de fertilizante (insumo granulado) por cada linha do implemento em tempo real. Detecta entupimentos, interrupções e distribuição irregular — garantindo aplicação uniforme e evitando perdas na lavoura."
-                    },
-                    {
                         "question": "Quais tipos de aplicação são compatíveis?",
-                        "answer": "O sistema é compatível com <strong>Air Drill</strong>, <strong>Gravidade</strong> e <strong>Strip Till</strong>. Para Gravidade, use a abraçadeira plástica inclusa no produto para fixação com a cinta Anti-UV."
+                        "answer": "O sistema é compatível com <strong>Gravidade</strong>, <strong>Air Drill</strong> e <strong>Strip Till</strong>. <ul><li><strong>Para Gravidade:</strong> Use o sensor com abraçadeira acoplada.</li><li><strong>Para Air Drill e Strip Till:</strong> O sensor não possui abraçadeira acoplada.</li></ul>"
                     },
                     {
                         "question": "Quais condutores são compatíveis?",
@@ -297,10 +299,6 @@
                     {
                         "question": "O sensor precisa de cabos ou carregamento?",
                         "answer": "Não. O Fert Sensor é <strong>totalmente sem fios</strong>. Comunica-se por RF 915 MHz e é alimentado por bateria de lítio não recarregável (3,6V – 4000mAh), com vida útil de aproximadamente 2.500 horas de uso."
-                    },
-                    {
-                        "question": "O sensor parou de aparecer no monitor — o que fazer?",
-                        "answer": "Verifique se o sensor está em <strong>modo de economia</strong> (dormindo). Dê leves batidas com uma chave de fenda para ativá-lo. Se persistir, verifique o alerta de bateria fraca no monitor. Em caso de dúvida, entre em contato com o suporte técnico."
                     }
                 ]
             },
@@ -323,10 +321,6 @@
                     {
                         "question": "O monitor é resistente à chuva?",
                         "answer": "Sim. O Monitor AT200 possui proteção <strong>IP54</strong> — resistente a respingos de água em qualquer direção. Não é indicado para imersão ou jatos diretos."
-                    },
-                    {
-                        "question": "Como ajustar data e hora?",
-                        "answer": "Acesse <strong>Menu → Relógio</strong> e ajuste dia, mês, ano, hora e minuto usando <strong>▲▼</strong>. Confirme cada campo com <strong>✓</strong>. O relógio correto é importante para o histórico de alarmes."
                     }
                 ]
             },
@@ -343,16 +337,12 @@
                         "answer": "A linha indicada está sem fluxo enquanto as demais estão normais. Verifique a linha correspondente: pode haver <strong>entupimento no condutor</strong> ou <strong>falta de material</strong> no dosador daquela linha."
                     },
                     {
-                        "question": "Como usar o histórico de alarmes?",
-                        "answer": "Acesse <strong>Menu → Histórico</strong> e navegue com <strong>▲▼</strong>. Registra: ligadas/desligadas do monitor, manobras, início e fim de plantio, e cada alarme com número da linha, data e duração em segundos."
-                    },
-                    {
                         "question": "O sensor com \"PILHA FRACA\" para de monitorar?",
                         "answer": "Não imediatamente. O alerta avisa com antecedência. O sensor continua operando por um período, mas é importante providenciar a troca para não perder o monitoramento da linha."
                     },
                     {
                         "question": "Posso usar com qualquer insumo granulado?",
-                        "answer": "Sim. O Fert Sensor é desenvolvido para monitorar materiais granulados em geral — fertilizantes, sementes de cobertura e outros insumos — nas operações de plantio e cultivo de soja, milho, cana-de-açúcar, entre outros."
+                        "answer": "Sim. O Fert Sensor é desenvolvido para monitorar materiais granulados em geral — fertilizantes, sementes de cobertura e outros insumos."
                     }
                 ]
             }
