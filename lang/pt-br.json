@@ -77,10 +77,67 @@
     },
     "install-section": [
         {
-            "title": "1- Instalação do Fert Sensor no implemento",
+            "title": "1- Instalação do Monitor AT200 no trator",
+            "description": "Este procedimento deve ser realizado exclusivamente em sistemas de 12V DC. Certifique-se de que o cabo possua um fusível de 3A instalado.",
+            "videoUrl": "https://www.youtube.com/embed/KK_xTjZErrs?si=9FXBEOZYtEKu2rWe",
+            "videoToRight": false,
+            "steps": [
+                {
+                    "description": "No compartimento da bateria, conecte o cabo vermelho ao terminal positivo (+) e o cabo preto ao negativo (-) da bateria do trator. Evite contato com partes móveis ou superfícies quentes."
+                },
+                {
+                    "description": "Conecte a outra extremidade do cabo atrás do monitor e rosqueie cuidadosamente até fixar por completo."
+                },
+                {
+                    "description": "Na cabine, limpe a superfície em que deseja fixar o monitor, pressione a ventosa firmemente e gire o fecho."
+                },
+                {
+                    "description": "Insira a cavidade localizada no verso do monitor no encaixe da ventosa até obter o travamento."
+                },
+                {
+                    "description": "Direcione o monitor para o assento do operador."
+                },
+                {
+                    "description": "Mantenha a antena sempre na vertical."
+                }
+            ],
+            "observation": {
+                "title": "Atenção:",
+                "description": "Evite posicionar o monitor atrás das colunas da cabine e perto de dispositivos que podem causar interferência (radiocomunicadores)."
+            }
+        },
+        {
+            "title": "2- Identificação e endereçamento dos sensores",
+            "description": "Recomendamos identificar cada sensor com o número da linha antes de endereçar ao monitor.",
+            "videoUrl": "https://www.youtube.com/embed/nEtj1OW5WVI?si=i1zm4gCJh3kmdTzG",
+            "videoToRight": true,
+            "steps": [
+                {
+                    "description": "Na parte frontal do sensor há 3 campos — use caneta permanente e preencha com o número da linha (ex.: 001, 002...)."
+                },
+                {
+                    "description": "No monitor, pressione <strong> [ MENU ] → [ SENSOR ] → [ ENDEREÇAR ]</strong> ."
+                },
+                {
+                    "description": "Selecione o número da linha com <strong>❨v❩ ❨˄❩</strong> e confirme <strong>❨✓❩</strong>."
+                },
+                {
+                    "description": "Encoste o símbolo do sensor no símbolo do monitor por ~5 segundos."
+                },
+                {
+                    "description": "Aguarde a confirmação sonora e visual e repita para cada sensor."
+                }
+            ],
+            "observation": {
+                "title": "Observação:",
+                "description": "Se o sensor não for reconhecido, pode estar em modo de economia. Dê leves batidas no sensor para ativá-lo."
+            }
+        },
+        {
+            "title": "3- Instalação do Fert Sensor no implemento",
             "description": "Antes de instalar, defina a melhor posição no implemento.",
             "videoUrl": "https://www.youtube.com/embed/S878uN8BzkQ?si=RCy4DMGrduynFURJ",
-            "videoToRight": true,
+            "videoToRight": false,
             "steps": [
                 {
                     "description": "Fixe o sensor com a abraçadeira plástica inclusa no produto."
@@ -107,61 +164,10 @@
             }
         },
         {
-            "title": "2- Instalação do Monitor AT200 no trator",
-            "description": "Lembre-se de instalar o monitor em uma posição confortável para o operador.",
-            "videoUrl": "https://www.youtube.com/embed/KK_xTjZErrs?si=9FXBEOZYtEKu2rWe",
-            "videoToRight": false,
-            "steps": [
-                {
-                    "description": "Limpe a superfície, encaixe a ventosa na parte traseira do monitor, pressione firmemente e gire o fecho."
-                },
-                {
-                    "description": "Direcione o monitor para o assento do operador."
-                },
-                {
-                    "description": "Mantenha a antena sempre na vertical."
-                },
-                {
-                    "description": "Evite posicionar atrás das colunas da cabine e perto de dispositivos que podem causar interferência (como radiocomunicadores)."
-                }
-            ],
-            "observation": {
-                "title": "Ligação elétrica:",
-                "description": "Conecte o cabo vermelho (fusível 3A) ao terminal positivo (+) e o cabo preto ao negativo (−) da bateria do trator (12V DC). Evite contato com partes móveis ou superfícies quentes."
-            }
-        },
-        {
-            "title": "3- Identificação e endereçamento dos sensores",
-            "description": "Cada sensor precisa ser identificado com o número da linha e endereçado ao monitor antes de operar.",
-            "videoUrl": "https://www.youtube.com/embed/nEtj1OW5WVI?si=i1zm4gCJh3kmdTzG",
-            "videoToRight": true,
-            "steps": [
-                {
-                    "description": "Na parte frontal do sensor há 3 campos — use caneta permanente e preencha com o número da linha (ex.: 001, 002...)."
-                },
-                {
-                    "description": "No monitor, pressione <strong> [ MENU ] → [ SENSOR ] → [ ENDEREÇAR ]</strong> ."
-                },
-                {
-                    "description": "Selecione o número da linha com <strong>❨v❩ ❨˄❩</strong> e confirme <strong>❨✓❩</strong>."
-                },
-                {
-                    "description": "Encoste o símbolo do sensor no símbolo do monitor por ~5 segundos."
-                },
-                {
-                    "description": "Aguarde a confirmação sonora e visual e repita para cada sensor."
-                }
-            ],
-            "observation": {
-                "title": "Observação:",
-                "description": "Se o sensor não for reconhecido, pode estar em modo de economia. Dê leves batidas no sensor para ativá-lo."
-            }
-        },
-        {
             "title": "4- Tela principal e leitura de status",
             "description": "Na tela principal do AT200 você acompanha em tempo real o status de todas as linhas monitoradas.",
             "videoUrl": "https://www.youtube.com/embed/QkSdmvlWtKw?si=UYXcsG7vRWOteJfi",
-            "videoToRight": false,
+            "videoToRight": true,
             "steps": [
                 {
                     "description": "<strong>FLUXO OK (setas >>>):</strong> todas as linhas com fluxo normal."
@@ -185,7 +191,7 @@
             "title": "5- Configurações do menu",
             "description": "Pressione <strong>❨X❩</strong> na tela principal para acessar e sair do menu de configurações do monitor.",
             "videoUrl": "https://www.youtube.com/embed/nmoFdtXSFUI?si=6OlxCyBtz8nl31GC",
-            "videoToRight": true,
+            "videoToRight": false,
             "steps": [
                 {
                     "description": "<strong>Idioma: [ MENU ] → [ SISTEMA / SYSTEM ] → [ IDIOMA / LANGUAGE ] </strong> — Alterar idioma (PT-BR/EN-US/ES-ES)."
@@ -218,7 +224,7 @@
             "title": "6- Troca de bateria do Fert Sensor",
             "description": "O monitor avisa com antecedência quando precisar trocar.",
             "videoUrl": "https://www.youtube.com/embed/-XRRZL1vB7c?si=_OR4xP69mrxqyQ58",
-            "videoToRight": false,
+            "videoToRight": true,
             "steps": [
                 {
                     "description": "Retire o sensor do implemento."
