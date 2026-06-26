@@ -80,7 +80,6 @@
             "title": "1- Instalação do Monitor AT200 no trator",
             "description": "Este procedimento deve ser realizado exclusivamente em sistemas de 12V DC. Certifique-se de que o cabo possua um fusível de 3A instalado.",
             "videoUrl": "https://www.youtube.com/embed/KK_xTjZErrs?si=9FXBEOZYtEKu2rWe",
-            "videoToRight": false,
             "steps": [
                 {
                     "description": "No compartimento da bateria, conecte o cabo vermelho ao terminal positivo (+) e o cabo preto ao negativo (-) da bateria do trator. Evite contato com partes móveis ou superfícies quentes."
@@ -110,7 +109,6 @@
             "title": "2- Identificação e endereçamento dos sensores",
             "description": "Recomendamos identificar cada sensor com o número da linha antes de endereçar ao monitor.",
             "videoUrl": "https://www.youtube.com/embed/nEtj1OW5WVI?si=i1zm4gCJh3kmdTzG",
-            "videoToRight": true,
             "steps": [
                 {
                     "description": "Na parte frontal do sensor há 3 campos — use caneta permanente e preencha com o número da linha (ex.: 001, 002...)."
@@ -137,7 +135,6 @@
             "title": "3- Instalação do Fert Sensor no implemento",
             "description": "Antes de instalar, defina a melhor posição no implemento.",
             "videoUrl": "https://www.youtube.com/embed/S878uN8BzkQ?si=RCy4DMGrduynFURJ",
-            "videoToRight": false,
             "steps": [
                 {
                     "description": "Fixe o sensor com a abraçadeira plástica inclusa no produto."
@@ -167,7 +164,6 @@
             "title": "4- Tela principal e leitura de status",
             "description": "Na tela principal do AT200 você acompanha em tempo real o status de todas as linhas monitoradas.",
             "videoUrl": "https://www.youtube.com/embed/QkSdmvlWtKw?si=UYXcsG7vRWOteJfi",
-            "videoToRight": true,
             "steps": [
                 {
                     "description": "<strong>FLUXO OK (setas >>>):</strong> todas as linhas com fluxo normal."
@@ -191,7 +187,6 @@
             "title": "5- Configurações do menu",
             "description": "Pressione <strong>❨X❩</strong> na tela principal para acessar e sair do menu de configurações do monitor.",
             "videoUrl": "https://www.youtube.com/embed/nmoFdtXSFUI?si=6OlxCyBtz8nl31GC",
-            "videoToRight": false,
             "steps": [
                 {
                     "description": "<strong>Idioma: [ MENU ] → [ SISTEMA / SYSTEM ] → [ IDIOMA / LANGUAGE ] </strong> — Alterar idioma (PT-BR/EN-US/ES-ES)."
@@ -224,7 +219,6 @@
             "title": "6- Troca de bateria do Fert Sensor",
             "description": "O monitor avisa com antecedência quando precisar trocar.",
             "videoUrl": "https://www.youtube.com/embed/-XRRZL1vB7c?si=_OR4xP69mrxqyQ58",
-            "videoToRight": true,
             "steps": [
                 {
                     "description": "Retire o sensor do implemento."

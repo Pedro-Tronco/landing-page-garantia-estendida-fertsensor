@@ -116,64 +116,36 @@
         <section>
             <script id="install-template" type="text/template">
                 {{#install-section}}
-                    {{#videoToRight}}
                     <h1>{{title}}</h1>
-                        <article class="install-article">
-                            <div class="install-content">
-                                <p class="install-description">{{{description}}}</p>
-                                <ul>
-                                    {{#steps}}
-                                    <li>{{{description}}}</li>
-                                    {{/steps}}
-                                </ul>
-                                <div class="install-observation">
-                                    <p><strong>{{observation.title}}</strong> {{{observation.description}}}</p>
-                                </div>
+                    <article class="install-article">
+                        <div class="install-content">
+                            <p class="install-description">{{{description}}}</p>
+                            <ul>
+                                {{#steps}}
+                                <li>{{{description}}}</li>
+                                {{/steps}}
+                            </ul>
+                            <div class="install-observation">
+                                <p><strong>{{observation.title}}</strong> {{{observation.description}}}</p>
                             </div>
-                            <div class="install-video">
-                                <iframe 
-                                    src="{{videoUrl}}" 
-                                    title="{{title}}"
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" 
-                                    referrerpolicy="strict-origin-when-cross-origin" 
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        </article>
-                    {{/videoToRight}}
-                    {{^videoToRight}}
-                    <h1>{{title}}</h1>
-                        <article class="install-article">
-                            <div class="install-video">
-                                <iframe 
-                                    src="{{videoUrl}}" 
-                                    title="{{title}}"
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" 
-                                    referrerpolicy="strict-origin-when-cross-origin" 
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                            <div class="install-content">
-                                <p class="install-description">{{{description}}}</p>
-                                <ul>
-                                    {{#steps}}
-                                    <li>{{{description}}}</li>
-                                    {{/steps}}
-                                </ul>
-                                <div class="install-observation">
-                                    <p><strong>{{observation.title}}</strong> {{{observation.description}}}</p>
-                                </div>
-                            </div>
-                        </article>
-                    {{/videoToRight}}
-                {{/install-section}}
-            </script>
-            <div id="install-target" class="install-section"></div>
-        </section>
-
-        <hr>
+                        </div>
+                        <div class="install-video">
+                            <iframe 
+                                src="{{videoUrl}}" 
+                                title="{{title}}"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </article>
+                    <hr>
+                    {{/install-section}}
+                </script>
+                <div id="install-target" class="install-section"></div>
+            </section>
+            
 
         <header>
             <script id="faq-header-template" type="text/template">
