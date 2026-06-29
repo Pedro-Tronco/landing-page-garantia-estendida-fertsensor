@@ -19,7 +19,7 @@
 	},
 	"hero": {
 		"title": "<div style='color: var(--orange);'>Extended Warranty</div> Program",
-		"subtitle": "Register your system and double your coverage — from 12 to 24 months of manufacturer warranty at no additional cost.",
+		"subtitle": "Register your system after installation and double your coverage — from 12 to 24 months of manufacturer warranty at no additional cost.",
 		"badge": "Fert Sensor + AT200 Monitor",
 		"cards": [
 			{
@@ -52,9 +52,6 @@
 					"label": "Only 5 minutes to complete"
 				},
 				{
-					"label": "Purchase invoice number"
-				},
-				{
 					"label": "Copy of the purchase invoice"
 				},
 				{
@@ -66,14 +63,22 @@
 			],
 			"buttonLabel": "Fill out the form",
 			"buttonUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf7YdJtIJEHGEkoTT_8qwzwbJPjCVaEM81B-sQ_vX6_K05R9A/viewform",
-			"note": "⏱ Register within 30 days after installation"
+			"note": [
+				{
+					"description": "* Requires Google account login"
+				}
+			]
 		},
 		"scrollHintLabel": "User Guide"
 	},
 	"install-header": {
 		"title": "System installation and setup",
 		"subtitle": "— User Guide",
-		"description": "Follow the steps below to properly install and configure your Fert Sensor and AT200 Monitor."
+		"description": "Follow the steps below to properly install and configure your Fert Sensor and AT200 Monitor.",
+		"observation": {
+			"title": "Hint:",
+			"description": "Make sure to take pictures of the installed system for the extended warranty registration."
+		}
 	},
 	"install-section": [
 		{
@@ -88,7 +93,7 @@
                     "description": "Connect the other end of the cable to the back of the monitor and carefully thread it until it is fully secured."
                 },
                 {
-                    "description": "In the cab, clean the surface where you want to mount the monitor, press the suction cup firmly, and turn the lock."
+                    "description": "In the cab, clean the surface where you want to mount the monitor, press the suction cup firmly, and turn the latch."
                 },
                 {
                     "description": "Insert the slot located on the back of the monitor into the suction cup mount until it locks into place."
@@ -137,6 +142,9 @@
 			"videoUrl": "https://www.youtube.com/embed/S878uN8BzkQ?si=RCy4DMGrduynFURJ",
 			"steps": [
 				{
+					"description": "Position the sensor ~12-15 cm (5-6 inches) from the manifold, in a straight section of the conductor."
+				},
+				{
 					"description": "Secure the sensor with the plastic clamp included with the product."
 				},
 				{
@@ -152,7 +160,7 @@
 					"description": "Cut off the excess strap after fastening."
 				},
 				{
-					"description": "Make sure the sensors are aligned and positioned the same way."
+					"description": "Make sure the sensors are in the same alignment and orientation."
 				}
 			],
 			"observation": {
@@ -166,7 +174,7 @@
 			"videoUrl": "https://www.youtube.com/embed/QkSdmvlWtKw?si=UYXcsG7vRWOteJfi",
 			"steps": [
 				{
-					"description": "<strong>FLOW OK (arrows >>>):</strong> all rows with normal flow."
+					"description": "<strong>RUNNING (arrows >>>):</strong> all rows with normal flow."
 				},
 				{
 					"description": "<strong>MANEUVER:</strong> flow interrupted by a stop or maneuver of the implement."
@@ -195,7 +203,7 @@
 					"description": "<strong>History: [ MENU ] → [ HISTORY ] </strong> — Show complete alarm log with date, time, and duration (recommended for diagnosing recurring issues)."
 				},
 				{
-					"description": "<strong>Brightness/Volume:  [ MENU ] → [ BRIGHTNESS / BEEP VOLUME ] → ❨v❩ ❨˄❩ → ❨✓❩ </strong> — 5 levels of adjustment."
+					"description": "<strong>Brightness/Volume:  [ MENU ] → [ BRIGHTNESS / BEEP VOLUME ] → ❨v❩ ❨˄❩ → ❨✓❩ </strong> — 6 levels of adjustment."
 				},
 				{
 					"description": "<strong>Date/time: [ MENU ] →  [ SYSTEM ] → [ DATE TIME ] </strong> — Adjust day, month, year, hour and minute."
@@ -254,7 +262,11 @@
 	"faq-header": {
 		"title": "Frequently Asked Questions",
 		"subtitle": "— FAQ",
-		"description": "Choose a category to quickly find your answer."
+		"description": "Choose a category to quickly find your answer.",
+		"observation": {
+			"title": "Can't find an answer?",
+			"description": "Consult the official user manual by cliking <a href='https://example.com/user-manual' target='_blank'>here</a>."
+		}
 	},
 	"faq-content": {
 		"categories": [

@@ -25,6 +25,24 @@
     .nav-buttons a {
         display: none;
     }
+    
+    .carousel-fade-edges {
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 3%,
+        black 97%,
+        transparent 100%
+    );
+    
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 3%,
+        black 97%,
+        transparent 100%
+    );
+    }
 }
 
 @keyframes bob {
@@ -79,10 +97,9 @@ a:visited {
 hr {
     border: none;
     border-top: 1px solid var(--light-beige);
-    margin-bottom: 5vh;
+    margin: 0 auto;
+    margin-bottom: 30px;
     width: 90vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
 }
 
 .navbar {
@@ -396,10 +413,10 @@ hr {
     background-color: var(--orange-bright);
 }
 
-.hero-form p {
+.hero-form-observation {
     font-family: var(--font-body);
     font-size: 13px;
-    color: var(--gray);
+    color: var(--orange-bright);
     text-align: center;
 }
 
@@ -429,8 +446,10 @@ hr {
 }
 
 .content-header {
-    padding: 20px min(2vw, 5%);
+    padding: 0 min(2vw, 5%);
     margin: min(3vw, 20px);
+    padding-bottom: 10px;
+    padding-top: 3px;
 }
 
 .content-header h1 {
@@ -454,11 +473,35 @@ hr {
 
 .content-header p {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 18px;
     color: var(--text-muted);
     max-width: max(60%, 400px);
     line-height: 1.6;
     font-weight: 400;
+}
+
+.content-header ul {
+    list-style-type: circle;
+    margin: 10px 0;
+    padding-left: 20px;
+    width: fit-content;
+}
+
+.content-header li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 17px;
+    width: fit-content;
+    font-family: var(--font-body);
+}
+
+.content-header li strong {
+    color: var(--navy);
+}
+
+.content-header li::marker {
+    content: "➤ ";
+    color: var(--navy);
 }
 
 .install-section {
@@ -567,14 +610,11 @@ hr {
 
 .faq-categories-wrapper {
     width: 100%;
-    overflow-x: auto;
-    padding: 10px 0;
-    margin: 5px 0;
+    margin: 0;
 }
 
 .faq-categories-carousel {
     display: flex;
-    gap: 15px;
     overflow-x: auto;
 }
 
@@ -590,6 +630,7 @@ hr {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0 8px;
 }
 
 .faq-category-btn:hover {

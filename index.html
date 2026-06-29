@@ -89,7 +89,9 @@
                             <form action="{{hero.form.buttonUrl}}" method="get" target="_blank">
                                 <button type="submit">{{hero.form.buttonLabel}}</button>
                             </form>
-                            <p>{{hero.form.note}}</p>
+                            {{#hero.form.note}}
+                                <p class="hero-form-observation">{{description}}</p>
+                            {{/hero.form.note}}
                         </div>
                         <div>
                             <a href="#install-header-target" class="hero-scroll-hint">
@@ -110,6 +112,9 @@
                 <h2>{{install-header.subtitle}}</h2>
                 <h1>{{install-header.title}}</h1>
                 <p>{{install-header.description}}</p>
+                <ul>
+                    <li><strong>{{install-header.observation.title}}</strong> {{{install-header.observation.description}}}</li>
+                </ul>
             </script>
             <div id="install-header-target" class="install-header content-header"></div>
         </header>
@@ -152,6 +157,9 @@
                 <h2>{{faq-header.subtitle}}</h2>
                 <h1>{{faq-header.title}}</h1>
                 <p>{{faq-header.description}}</p>
+                <ul>
+                    <li><strong>{{faq-header.observation.title}}</strong> {{{faq-header.observation.description}}}</li>
+                </ul>
             </script>
             <div id="faq-header-target" class="faq-header content-header"></div>
         </header>
@@ -163,7 +171,7 @@
                     {{/faq-content.categories}}
                 </script>
                 <div class="faq-categories-wrapper">
-                    <div id="faq-categories-target" class="faq-categories-carousel"></div>
+                    <div id="faq-categories-target" class="faq-categories-carousel carousel-fade-edges"></div>
                 </div>
 
                 <script id="faq-questions-template" type="text/template">
@@ -203,7 +211,7 @@
     <footer>
         <script id="footer-template" type="text/template">
             <div class="footer-container">
-                <nav class="footer-docs">
+                <nav class="footer-docs carousel-fade-edges">
                     {{#footer.docsButtons}}
                         <a href="{{url}}" target="_blank" class="footer-docs-button">{{name}}</a>
                     {{/footer.docsButtons}}
