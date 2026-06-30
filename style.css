@@ -15,13 +15,20 @@
     --orange-background: #FF6A3933;
     --navy-background: #00386533;
 
+    --menu-bright-yellow: #EAF603;
+    --menu-dark-yellow: #9db403;
+
+    --btn-gray: #DAD4D9;
+    --btn-blue: #0D64AE;
+    --btn-red: #FF0000;
+
     --font-mono: monospace;
     --font-ui: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-title: 'M PLUS 1', sans-serif;
     --font-body: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 479px) {
     .nav-buttons a {
         display: none;
     }
@@ -100,6 +107,127 @@ hr {
     margin: 0 auto;
     margin-bottom: 30px;
     width: 90vw;
+}
+
+.fs-menu-path {
+    width: fit-content;
+    display: inline-block;
+    background-color: var(--menu-dark-yellow);
+    padding: 0 5px;
+    font-weight: bold;
+    color: var(--menu-bright-yellow);
+    font-family: var(--font-mono);
+    border-radius: 2px;
+    line-height: 135%;
+}
+
+.fs-menu-subtitle {
+    width: fit-content;
+    display: inline-block;
+    background-color: var(--menu-bright-yellow);
+    padding: 0 5px;
+    font-weight: bold;
+    color: var(--menu-dark-yellow);
+    font-family: var(--font-mono);
+    border-radius: 2px;
+    border: 2px solid var(--menu-dark-yellow);
+    line-height: 115%;
+}
+
+.fs-button-cancel {
+    width: fit-content;
+    display: inline-block;
+    padding: 1px 4px 2px 4px;
+    color: var(--btn-red);
+    font-family: var(--font-mono);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    box-shadow: 0.4px 0.4px 3px var(--text-muted); 
+
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--btn-gray), var(--btn-gray)), 
+        linear-gradient(135deg, var(--white), var(--gray));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.fs-button-cancel:empty::before {
+    content: "✖";
+}
+
+.fs-button-up {
+    width: fit-content;
+    display: inline-block;
+    padding: 0px 4px 3px 4px;
+    color: var(--btn-blue);
+    font-family: var(--font-mono);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 20px;
+    box-shadow: 0.4px 0.4px 3px var(--text-muted); 
+
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--btn-gray), var(--btn-gray)), 
+        linear-gradient(135deg, var(--white), var(--gray));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.fs-button-up:empty::before {
+    content: "ʌ";
+}
+
+.fs-button-down {
+    width: fit-content;
+    display: inline-block;
+    padding: 0px 4px 3px 4px;
+    color: var(--btn-blue);
+    font-family: var(--font-mono);
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 20px;
+    box-shadow: 0.4px 0.4px 3px var(--text-muted); 
+
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--btn-gray), var(--btn-gray)), 
+        linear-gradient(135deg, var(--white), var(--gray));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.fs-button-down:empty::before {
+    content: "v";
+}
+
+.fs-button-confirm {
+    width: fit-content;
+    display: inline-block;
+    padding: 2px 5px 1px 5px;
+    color: var(--btn-gray);
+    font-family: var(--font-mono);
+    border-radius: 50%;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 20px;
+    box-shadow: 0.4px 0.4px 3px var(--text-muted); 
+
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(var(--btn-blue), var(--btn-blue)), 
+        linear-gradient(135deg, var(--blue), var(--navy-light));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.fs-button-confirm:empty::before {
+    content: "✔";
 }
 
 .navbar {
@@ -338,6 +466,7 @@ hr {
     font-family: var(--font-body);
     font-size: 13px;
     color: var(--gray);
+    width: fit-content;
 }
 
 .hero-form {
@@ -500,7 +629,8 @@ hr {
 }
 
 .content-header li::marker {
-    content: "➤ ";
+    content: "» ";
+    font-size: 21px;
     color: var(--navy);
 }
 
@@ -549,8 +679,9 @@ hr {
     margin-bottom: 15px;
     font-size: 18px;
     color: var(--text-muted);
-    font-weight: lighter;
+    font-weight: 300;
     width: fit-content;
+    line-height: 31px;
 }
 
 .install-content ul {
@@ -567,11 +698,12 @@ hr {
 }
 
 .install-content li::marker {
-    color: var(--orange);
+    color: var(--navy);
 }
 
 .install-video {
-    margin: 20px min(1vw, 20px);
+    margin: 0 min(1vw, 20px);
+    margin-top: 20px;
     max-width: max(42%, 400px);
     width: 100%;
     height: 100%;

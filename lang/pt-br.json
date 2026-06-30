@@ -119,10 +119,10 @@
                     "description": "Na parte frontal do sensor há 3 campos — use caneta permanente e preencha com o número da linha (ex.: 001, 002...)."
                 },
                 {
-                    "description": "No monitor, pressione <strong> [ MENU ] → [ SENSOR ] → [ ENDEREÇAR ]</strong> ."
+                    "description": "No monitor, pressione <span class='fs-button-cancel'></span> para abrir o menu, então navegue para <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>SENSOR</span> → <span class='fs-menu-path'>ENDEREÇAR</span>."
                 },
                 {
-                    "description": "Selecione o número da linha com <strong>❨v❩ ❨˄❩</strong> e confirme <strong>❨✓❩</strong>."
+                    "description": "Selecione o número da linha com <span class='fs-button-down'></span> <span class='fs-button-up'></span> e confirme <span class='fs-button-confirm'></span>."
                 },
                 {
                     "description": "Encoste o símbolo do sensor no símbolo do monitor por ~5 segundos."
@@ -174,16 +174,16 @@
             "videoUrl": "https://www.youtube.com/embed/QkSdmvlWtKw?si=UYXcsG7vRWOteJfi",
             "steps": [
                 {
-                    "description": "<strong>FLUXO OK (setas >>>):</strong> todas as linhas com fluxo normal."
+                    "description": "<span class='fs-menu-path'>FLUXO OK</span> <span class='fs-menu-subtitle'>>>> ❪ ✓ ❫ >>></span> → todas as linhas com fluxo normal."
                 },
                 {
-                    "description": "<strong>MANOBRA:</strong> fluxo interrompido por parada ou manobra do implemento."
+                    "description": "<span class='fs-menu-path'>MANOBRA</span> <span class='fs-menu-subtitle'>❪ ✕ ❫</span> → fluxo interrompido por parada ou manobra do implemento."
                 },
                 {
-                    "description": "<strong>FALHA + número da linha:</strong> entupimento ou falta de material — verifique a linha indicada."
+                    "description": "<span class='fs-menu-path'>FALHA</span> <span class='fs-menu-subtitle'>001</span> → entupimento ou falta de material — verifique a linha indicada."
                 },
                 {
-                    "description": "<strong>PILHA FRACA:</strong> bateria do sensor precisa ser trocada em breve."
+                    "description": "<span class='fs-menu-path'>PILHA FRACA</span> → bateria do sensor precisa ser trocada em breve."
                 }
             ],
             "observation": {
@@ -193,34 +193,34 @@
         },
         {
             "title": "5- Configurações do menu",
-            "description": "Pressione <strong>❨X❩</strong> na tela principal para acessar e sair do menu de configurações do monitor.",
+            "description": "Pressione <span class='fs-button-cancel'></span> na tela principal para acessar e sair do menu de configurações do monitor, <span class='fs-button-down'></span> <span class='fs-button-up'></span> para navegar pelas opções e <span class='fs-button-confirm'></span> para selecionar/confirmar.",
             "videoUrl": "https://www.youtube.com/embed/nmoFdtXSFUI?si=6OlxCyBtz8nl31GC",
             "steps": [
                 {
-                    "description": "<strong>Idioma: [ MENU ] → [ SISTEMA / SYSTEM ] → [ IDIOMA / LANGUAGE ] </strong> — Alterar idioma (PT-BR/EN-US/ES-ES)."
+                    "description": "<strong>Idioma: </strong> <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>SISTEMA / SYSTEM</span>  → <span class='fs-menu-path'>IDIOMA / LANGUAGE</span>  → Alterar idioma (PT-BR/EN-US/ES-ES)."
                 },
                 {
-                    "description": "<strong>Histórico: [ MENU ] → [ HISTÓRICO ] </strong> — Mostrar registro completo de alarmes com data, hora e duração (recomendado para diagnóstico de problemas recorrentes)."
+                    "description": "<strong>Histórico: </strong> <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>HISTÓRICO</span> → Mostrar registro completo de alarmes com data, hora e duração (recomendado para diagnóstico de problemas recorrentes)."
                 },
                 {
-                    "description": "<strong>Brilho/Volume:  [ MENU ] → [ BRILHO / VOLUME ] → ❨v❩ ❨˄❩ → ❨✓❩ </strong> — 6 níveis de ajuste."
+                    "description": "<strong>Brilho/Volume: </strong>  <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>BRILHO / VOLUME</span> → 6 níveis de ajuste."
                 },
                 {
-                    "description": "<strong>Relógio: [ MENU ] → [ SISTEMA ] → [ RELÓGIO ] </strong> — Ajustar dia, mês, ano, hora e minuto."
+                    "description": "<strong>Relógio: </strong> <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>SISTEMA</span>  → <span class='fs-menu-path'>RELÓGIO</span>  </strong> → Ajustar dia, mês, ano, hora e minuto."
                 },
                 {
-                    "description": "<strong>Ler sensor: [ MENU ] → [ SENSOR ] → [ LER ] </strong> — Verificar linha e monitor configurados."
+                    "description": "<strong>Ler sensor: </strong> <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>SENSOR</span>  → <span class='fs-menu-path'>LER</span>  </strong> → Verificar linha e monitor configurados."
                 },
                 {
-                    "description": "<strong>Desabilitar: [ MENU ] → [ SENSOR ] → [ DESABILITAR ] </strong> — Remover linha da rede."
+                    "description": "<strong>Desabilitar: </strong> <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>SENSOR</span>  → <span class='fs-menu-path'>DESABILITAR</span>  </strong> → Remover linha da rede."
                 },
                 {
-                    "description": "<strong>Nível da Bateria: [ MENU ] → [ SISTEMA ] → [ NÍVEL BAT. ] </strong> — Verificar nível da bateria dos sensores."
+                    "description": "<strong>Nível da Bateria: </strong> <span class='fs-menu-path'>MENU</span>  → <span class='fs-menu-path'>SISTEMA</span>  → <span class='fs-menu-path'>NÍVEL BAT.</span>  </strong> → Verificar nível da bateria dos sensores."
                 }
             ],
             "observation": {
                 "title": "Dica:",
-                "description": "Para cancelar qualquer operação, pressione <strong>❨X❩</strong> — o monitor retorna à tela principal imediatamente."
+                "description": "Para cancelar qualquer operação, pressione <span class='fs-button-cancel'></span> — o monitor retorna à tela principal imediatamente."
             }
         },
         {

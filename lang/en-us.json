@@ -119,10 +119,10 @@
 					"description": "On the front of the sensor there are 3 fields — use a permanent marker and fill in the row number (e.g., 001, 002...)."
 				},
 				{
-					"description": "On the monitor, press <strong>[ MENU ] → [ SENSOR ] → [ ADD ]</strong> ."
+					"description": "On the monitor, press <span class='fs-button-cancel'></span> to open the menu, then navigate to <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>SENSOR</span> → <span class='fs-menu-path'>ADD</span>."
 				},
 				{
-					"description": "Select the row number with <strong>❨v❩ ❨˄❩</strong> and confirm <strong>❨✓❩</strong>."
+					"description": "Select the row number with <span class='fs-button-down'></span> <span class='fs-button-up'></span> and confirm <span class='fs-button-confirm'></span>."
 				},
 				{
 					"description": "Bring the sensor symbol close to the monitor symbol for ~5 seconds."
@@ -174,16 +174,16 @@
 			"videoUrl": "https://www.youtube.com/embed/QkSdmvlWtKw?si=UYXcsG7vRWOteJfi",
 			"steps": [
 				{
-					"description": "<strong>RUNNING (arrows >>>):</strong> all rows with normal flow."
+					"description": "<span class='fs-menu-path'>RUNNING</span> <span class='fs-menu-subtitle'>>>> ❪ ✓ ❫ >>></span> → all rows with normal flow."
 				},
 				{
-					"description": "<strong>MANEUVER:</strong> flow interrupted by a stop or maneuver of the implement."
+					"description": "<span class='fs-menu-path'>MANEUVER</span> <span class='fs-menu-subtitle'>❪ ✕ ❫</span> → flow interrupted by a stop or maneuver of the implement."
 				},
 				{
-					"description": "<strong>FAILURE + row number:</strong> clogging or lack of material — check the indicated row."
+					"description": "<span class='fs-menu-path'>FAILURE</span> <span class='fs-menu-subtitle'>001</span> → clogging or lack of material — check the indicated row."
 				},
 				{
-					"description": "<strong>LOW BATTERY:</strong> sensor battery needs to be replaced soon."
+					"description": "<span class='fs-menu-path'>LOW BATTERY</span> → sensor battery needs to be replaced soon."
 				}
 			],
 			"observation": {
@@ -193,34 +193,34 @@
 		},
 		{
 			"title": "5- Menu settings",
-			"description": "Press <strong>❨X❩</strong> on the main screen to access and exit the monitor settings menu.",
+			"description": "Press <span class='fs-button-cancel'></span> on the main screen to access and exit the monitor settings menu, <span class='fs-button-down'></span> <span class='fs-button-up'></span> to navigate through the options and <span class='fs-button-confirm'></span> to select/confirm.",
 			"videoUrl": "https://www.youtube.com/embed/nmoFdtXSFUI?si=6OlxCyBtz8nl31GC",
 			"steps": [
 				{
-					"description": "<strong>Language: [ MENU ] → [ SYSTEM / SISTEMA ] → [ LANGUAGE / IDIOMA ] </strong> — Change language (PT-BR/EN-US/ES-ES)."
+					"description": "<strong>Language: </strong> <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>SYSTEM / SISTEMA</span> → <span class='fs-menu-path'>LANGUAGE / IDIOMA</span> → Change language (PT-BR/EN-US/ES-ES)."
 				},
 				{
-					"description": "<strong>History: [ MENU ] → [ HISTORY ] </strong> — Show complete alarm log with date, time, and duration (recommended for diagnosing recurring issues)."
+					"description": "<strong>History: </strong> <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>HISTORY</span> → Show complete alarm log with date, time, and duration (recommended for diagnosing recurring issues)."
 				},
 				{
-					"description": "<strong>Brightness/Volume:  [ MENU ] → [ BRIGHTNESS / BEEP VOLUME ] → ❨v❩ ❨˄❩ → ❨✓❩ </strong> — 6 levels of adjustment."
+					"description": "<strong>Brightness/Volume: </strong> <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>BRIGHTNESS / BEEP VOLUME</span> → 6 levels of adjustment."
 				},
 				{
-					"description": "<strong>Date/time: [ MENU ] →  [ SYSTEM ] → [ DATE TIME ] </strong> — Adjust day, month, year, hour and minute."
+					"description": "<strong>Date/time: </strong> <span class='fs-menu-path'>MENU</span> →  <span class='fs-menu-path'>SYSTEM</span> → <span class='fs-menu-path'>DATE TIME</span> </strong> → Adjust day, month, year, hour and minute."
 				},
 				{
-					"description": "<strong>Read sensor: [ MENU ] → [ SENSOR ] → [ READ ] </strong> — Verify the configured row and monitor."
+					"description": "<strong>Read sensor: </strong> <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>SENSOR</span> → <span class='fs-menu-path'>READ</span> </strong> → Verify the configured row and monitor."
 				},
 				{
-					"description": "<strong>Disable: [ MENU ] → [ SENSOR ] → [ DISABLE ] </strong> — Remove row from the network."
+					"description": "<strong>Disable: </strong> <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>SENSOR</span> → <span class='fs-menu-path'>DISABLE</span> </strong> → Remove row from the network."
 				},
 				{
-					"description": "<strong>Battery Level: [ MENU ] → [ SYSTEM ] → [ BATT INFO. ] </strong> — Check battery level of all sensors."
+					"description": "<strong>Battery Level: </strong> <span class='fs-menu-path'>MENU</span> → <span class='fs-menu-path'>SYSTEM</span> → <span class='fs-menu-path'>BATT INFO.</span> </strong> → Check battery level of all sensors."
 				}
 			],
 			"observation": {
 				"title": "Hint:",
-				"description": "To cancel any operation, press <strong>❨X❩</strong> — the monitor immediately returns to the main screen."
+				"description": "To cancel any operation, press <span class='fs-button-cancel'></span> — the monitor immediately returns to the main screen."
 			}
 		},
 		{
