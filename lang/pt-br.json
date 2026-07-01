@@ -265,7 +265,7 @@
         "description": "Escolha uma categoria para encontrar sua resposta rapidamente.",
         "observation": {
 			"title": "Não encontrou sua resposta?",
-			"description": "Consulte o manual do usuário oficial clicando <a href=\"placeholder\" target=\"_blank\">aqui</a>."
+			"description": "Consulte o manual do usuário oficial clicando <a href=\"https://example.com/user-manual\" target=\"_blank\">aqui</a>."
 		}
     },
     "faq-content": {

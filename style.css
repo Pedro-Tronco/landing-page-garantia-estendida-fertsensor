@@ -1,4 +1,5 @@
 :root {
+    /* Cores específicas da página */
     --navy: #003865;
     --blue: #0072CE;
     --orange: #FF6A39;
@@ -15,40 +16,75 @@
     --orange-background: #FF6A3933;
     --navy-background: #00386533;
 
+    /* Cores do menu do monitor at-200 */
     --menu-bright-yellow: #EAF603;
     --menu-dark-yellow: #9db403;
 
+    /* Cores dos botões do monitor at-200 */
     --btn-gray: #DAD4D9;
     --btn-blue: #0D64AE;
     --btn-red: #FF0000;
 
+    /* Fontes */
     --font-mono: monospace;
     --font-ui: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-title: 'M PLUS 1', sans-serif;
     --font-body: 'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Tamanho default dos elementos (para desktop/tablet horizontal) */
+    --hero-max-width: 50%;
+    --install-content-max-width: 50%;
+    --install-video-max-width: 42%;
 }
 
-@media (max-width: 479px) {
+/* Otimiza visualização para telefones no modo retrato */
+@media (orientation: portrait) {
+    :root {
+        --hero-max-width: 95%;
+        --install-content-max-width: 100%;
+        --install-video-max-width: 100%;
+    }
+    
+    .install-article {
+        justify-content: center;
+    }
+}
+
+/* Otimiza visualização para telefones no modo paisagem */
+@media (orientation: landscape) and (max-height: 420px) {
+    :root {
+        --hero-max-width: 95%;
+        --install-content-max-width: 90%;
+        --install-video-max-width: calc((100dvh * (16 / 9)) - 130px);
+    }
+
+    .install-article {
+        justify-content: center;
+    }
+}
+
+/* Habilita transição do carousel e nav-buttons quando for tablet ou menor */
+@media (max-width: 767px) {
     .nav-buttons a {
         display: none;
     }
-    
+
     .carousel-fade-edges {
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 3%,
-        black 97%,
-        transparent 100%
-    );
-    
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        black 3%,
-        black 97%,
-        transparent 100%
-    );
+        mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 3%,
+            black 97%,
+            transparent 100%
+        );
+        
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 3%,
+            black 97%,
+            transparent 100%
+        );
     }
 }
 
@@ -323,7 +359,7 @@ hr {
 }
 
 .hero-left {
-    width: max(50%, 400px);
+    width: var(--hero-max-width);
     height: max(100svh - 64px, 500px);
     min-height: fit-content;
     padding: 0;
@@ -334,7 +370,7 @@ hr {
 }
 
 .hero-right {
-    width: max(50%, 400px);
+    width: var(--hero-max-width);
     height: fit-content;
     padding: 0;
     margin: 0;
@@ -604,7 +640,6 @@ hr {
     font-family: var(--font-body);
     font-size: 18px;
     color: var(--text-muted);
-    max-width: max(60%, 400px);
     line-height: 1.6;
     font-weight: 400;
 }
@@ -658,7 +693,6 @@ hr {
     margin-bottom: 40px;
     display: flex;
     flex-wrap: wrap-reverse;
-    justify-content: start;
     align-items: flex-end;
 }
 
@@ -669,7 +703,7 @@ hr {
     padding: 0;
     display: block;
     width: 100%;
-    max-width: max(50%, 400px);
+    max-width: var(--install-content-max-width);
     min-width: 0;
 }
 
@@ -704,9 +738,10 @@ hr {
 .install-video {
     margin: 0 min(1vw, 20px);
     margin-top: 20px;
-    max-width: max(42%, 400px);
+    max-width: var(--install-video-max-width);
     width: 100%;
     height: 100%;
+    justify-self: center;
 }
 
 .install-video iframe {
