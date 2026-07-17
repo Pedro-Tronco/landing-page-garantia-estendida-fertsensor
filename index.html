@@ -34,9 +34,13 @@
         </a>
 
         <script id="nav-buttons-template" type="text/template">
-            {{#nav.buttons}}
-                <a href="#{{navigation}}">{{name}}</a>
-            {{/nav.buttons}}
+            {{#nav.index}}
+                {{#displayButtons}}
+                    {{#buttons}}
+                        <a href="{{navigation}}">{{name}}</a>
+                    {{/buttons}}
+                {{/displayButtons}}
+            {{/nav.index}}
         </script>
         <div id="nav-buttons-target" class="nav-buttons"></div>
 
@@ -86,7 +90,7 @@
                                 <li>{{label}}</li>
                                 {{/hero.form.fields}}
                             </ul>
-                            <form action="{{hero.form.buttonUrl}}" method="get" target="_blank">
+                            <form action="warranty.html">
                                 <button type="submit">{{hero.form.buttonLabel}}</button>
                             </form>
                             {{#hero.form.note}}
@@ -112,9 +116,11 @@
                 <h2>{{install-header.subtitle}}</h2>
                 <h1>{{install-header.title}}</h1>
                 <p>{{install-header.description}}</p>
-                <ul>
-                    <li><strong>{{install-header.observation.title}}</strong> {{{install-header.observation.description}}}</li>
-                </ul>
+                {{#install-header.observation}}
+                    <ul>
+                        <li><strong>{{install-header.observation.title}}</strong> {{{install-header.observation.description}}}</li>
+                    </ul>
+                {{/install-header.observation}}
             </script>
             <div id="install-header-target" class="install-header content-header"></div>
         </header>
@@ -157,18 +163,20 @@
                 <h2>{{faq-header.subtitle}}</h2>
                 <h1>{{faq-header.title}}</h1>
                 <p>{{faq-header.description}}</p>
-                <ul>
-                    <li><strong>{{faq-header.observation.title}}</strong> {{{faq-header.observation.description}}}</li>
-                </ul>
+                {{#faq-header.observation}}
+                    <ul>
+                        <li><strong>{{faq-header.observation.title}}</strong> {{{faq-header.observation.description}}}</li>
+                    </ul>
+                {{/faq-header.observation}}
             </script>
             <div id="faq-header-target" class="faq-header content-header"></div>
         </header>
         <section>
             <div class="faq-container">
                 <script id="faq-categories-template" type="text/template">
-                    {{#faq-content.categories}}
+                    {{#faq-section.categories}}
                         <button class="faq-category-btn" data-category-id="{{id}}">{{name}}</button>
-                    {{/faq-content.categories}}
+                    {{/faq-section.categories}}
                 </script>
                 <div class="faq-categories-wrapper">
                     <div id="faq-categories-target" class="faq-categories-carousel carousel-fade-edges"></div>
@@ -198,7 +206,7 @@
                 <div class="form-reminder">
                     <h1>{{form-reminder.title}}</h1>
                     <p>{{form-reminder.subtitle}}</p>
-                    <a href="{{form-reminder.buttonUrl}}" target="_blank">
+                    <a href="warranty.html">
                         <button>{{form-reminder.buttonLabel}}</button>
                     </a>
                 </div>
@@ -232,16 +240,21 @@
                         {{/footer.networkButtons}}
                     </nav>
                 </div>
-
-                <div >
-                </div>
             </div>
         </script>
         <div id="footer-target" class="footer-section"></div>
     </footer>
 
+    <!-- Loading overlay -->
+    <div id="form-loading-overlay" class="form-loading-overlay" style="display: none;">
+        <div class="form-loading-spinner">
+            <div class="spinner"></div>
+            <p id="form-loading-message"></p>
+        </div>
+    </div>
+
     <!-- Loads all elements based on lang file -->
-    <script src="script.js" defer></script>
+    <script src="scripts/load-page.js" type="module" defer></script>
 </body>
 
 </html>

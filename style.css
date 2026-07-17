@@ -35,6 +35,7 @@
     --hero-max-width: 50%;
     --install-content-max-width: 50%;
     --install-video-max-width: 42%;
+    --policy-content-max-width: 70%;
 }
 
 /* Otimiza visualização para telefones no modo retrato */
@@ -43,6 +44,8 @@
         --hero-max-width: 95%;
         --install-content-max-width: 100%;
         --install-video-max-width: 100%;
+        --policy-content-max-width: 90%;
+        --form-inputs-max-width: 100%;
     }
     
     .install-article {
@@ -56,6 +59,8 @@
         --hero-max-width: 95%;
         --install-content-max-width: 90%;
         --install-video-max-width: calc((100dvh * (16 / 9)) - 130px);
+        --policy-content-max-width: 80%;
+        --form-inputs-max-width: 90%;
     }
 
     .install-article {
@@ -86,6 +91,12 @@
             transparent 100%
         );
     }
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 @keyframes bob {
@@ -143,6 +154,34 @@ hr {
     margin: 0 auto;
     margin-bottom: 30px;
     width: 90vw;
+}
+
+#form-loading-message {
+    color: var(--white);
+    font-size: 16px;
+    font-family: var(--font-body);
+    text-align: center;
+}
+
+.generic-button {
+    font-size: 18px;
+    font-family: var(--font-body);
+    background-color: var(--orange);
+    font-weight: 500;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    align-self: center;
+    justify-self: center;
+    margin: 10px auto;
+    color: var(--white) !important;
+}
+
+.generic-button:hover {
+    background-color: var(--orange-bright);
 }
 
 .fs-menu-path {
@@ -533,7 +572,7 @@ hr {
     font-size: 15px;
     color: var(--text-muted);
     text-align: left;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .hero-form ul {
@@ -581,7 +620,7 @@ hr {
 .hero-form-observation {
     font-family: var(--font-body);
     font-size: 13px;
-    color: var(--orange-bright);
+    color: var(--gray);
     text-align: center;
 }
 
@@ -938,6 +977,326 @@ hr {
     background-color: var(--orange-bright);
 }
 
+.policy-section {
+    max-width: var(--policy-content-max-width);
+    width: 100%;
+    padding: 0px;
+    margin: 0 20px;
+    gap: 20px;
+    justify-self: center;
+}
+
+.policy-document-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-beige);
+    border-radius: 0 7px 7px 0; 
+    margin-bottom: 20px;
+    border-left: solid 6px var(--orange);
+}
+
+.policy-document-container h1 {
+    font-family: var(--font-title);
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 10px 5px;
+}
+
+.pdf-container {
+    box-shadow: 0 0 3px var(--text-muted);
+    aspect-ratio: 1 / 1.314;
+    max-width: 97%;
+    max-height: 85dvh;
+    width: 100%;
+    margin: 10px auto;
+    background-color: var(--orange-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+.pdf-viewer p {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--text);
+    margin: 20px 0;
+}
+
+.checkbox-message {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 15px;
+    margin: 25px 0;
+} 
+
+.checkbox-container label {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: var(--navy);
+    cursor: pointer;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+
+.checkbox-container label:hover {
+    color: var(--navy-light);
+}
+
+.checkbox-container input[type="checkbox"] {
+    appearance: none; 
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--white);
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: 0.15s ease-in-out;
+    flex-shrink: 0;
+}
+
+.checkbox-container input[type="checkbox"]:hover {
+    border-color: var(--navy-light);
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+    border-color: var(--navy-light);
+    appearance: none; 
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.checkbox-container input[type="checkbox"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: var(--white);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.checkbox-container input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.required-asterisk {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: var(--font-ui);
+    line-height: 0;
+    margin-bottom: -0.15em;
+}
+
+.required-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.required-label p {
+    color: red;
+    font-size: 15px;
+    font-family: var(--font-ui);
+    font-weight: 500;
+}
+
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: var(--form-inputs-max-width);
+    margin: 15px 0;
+    border-left: 3px solid var(--navy);
+    background-color: var(--light-beige);
+    padding: 8px 15px;
+    animation: growVertical 0.2s ease-out forwards;
+}
+
+.inputs-container label {
+    font-family: var(--font-ui);
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 500;
+}
+
+.inputs-container p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin: 6px 0;
+}
+
+.inputs-container .note {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-align: left;
+}
+
+.inputs-container .note::before {
+    content: "» ";
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.inputs-container button {
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: var(--font-body);
+    background-color: var(--navy);
+    color: var(--white);
+    font-weight: 500;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.inputs-container button:hover {
+    background-color: var(--navy-light);
+}
+
+.inputs-container .input-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 100%;
+}
+
+.email-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.email-field input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--text);
+    width: min(370px, 90%);
+    background-color: var(--white);
+}
+
+.email-status-message {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 800;
+    font-family: var(--font-body);
+    align-self: center;
+    margin-right: auto;
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: auto;
+    margin-bottom: 20px;
+    display: none;
+    animation: growVertical 0.2s ease-out forwards;
+}
+
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: min(12px, 3%);
+    width: min(320px, 90%);
+}
+
+.otp-inputs input{
+    font-family: var(--font-body);
+    font-size: 28px;
+    font-weight: 350;
+    background: var(--white);
+    border: 1px solid var(--gray);
+    padding: 2px 0px;
+    border-radius: 10px;
+    text-align: center;
+    width: 40px;
+    margin: auto;
+    background-color: var(--white);
+    caret-color: transparent;
+    user-select: none;
+    
+}
+
+.submit-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.submit-button-container button {
+    text-decoration: none;
+    font-size: 18px;
+    font-family: var(--font-body);
+    background-color: var(--navy);
+    color: var(--white);
+    font-weight: 500;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button-container button:hover {
+    background-color: var(--navy-light);
+}
+
+.submit-button-container p {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
 .footer-container {
     background-color: var(--navy-dark);
     display: flex;
@@ -1029,4 +1388,57 @@ hr {
     color: var(--gray);
     font-size: 14px;
     align-self: flex-end;
+}
+
+.form-errors-container {
+    background-color: var(--orange-background);
+    border: 1px solid var(--orange);
+    padding: 8px 16px;
+    margin-bottom: 20px;
+    display: none;
+    border-radius: 5px;
+}
+
+.form-errors-list {
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
+    gap: 5px;
+}
+
+.form-errors-list li {
+    color: red;
+    font-size: 14px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.form-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.form-loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
