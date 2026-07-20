@@ -3,12 +3,12 @@
  * Handles language switching, manifest loading, and language preference persistence
  */
 
-import { backend_url } from './load-page.js';
+import { backendFetch } from './api-endpoint-helper.js';
 
 async function getAvailableLangs() {
     let avaliableLangs;
     try {
-        const response = await fetch(`${backend_url}/content/manifest`);
+        const response = await backendFetch('content/manifest', { skipLanguageHeader: true });
         const result = await response.json();
         avaliableLangs = result.languages
     } catch (error) {

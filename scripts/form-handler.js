@@ -4,7 +4,7 @@
  */
 
 import { showLoading, hideLoading } from './loading-overlay.js';
-import { backend_url } from './load-page.js'
+import { backendFetch } from './api-endpoint-helper.js'
 import { getAuthToken, setAuthToken } from './auth.js'
 
 let currentFormData = null;
@@ -264,7 +264,6 @@ function initFormHandler(data) {
         showLoading(fieldsConfig['policy-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
 
         try {
-            const lang = document.documentElement.lang
             const token = getAuthToken()
 
             if (token === 'Bearer null') {
@@ -272,10 +271,9 @@ function initFormHandler(data) {
                 return;
             }
 
-            const response = await fetch(`${backend_url}/ws/form-response-url`,{
+            const response = await backendFetch('ws/form-response-url', {
                 method: 'GET',
                 headers: {
-                    'Language': lang,
                     'Authorization': token,
                     'Content-Type': 'application/json',
                     'Accept': '*/*',
@@ -323,16 +321,14 @@ function initFormHandler(data) {
         showLoading(fieldsConfig['policy-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
         try {
             const userEmail = formData.inputs['email']
-            const lang = document.documentElement.lang
 
             const payload = {
                 'email': userEmail
             };
 
-            const response = await fetch(`${backend_url}/auth/request`, {
+            const response = await backendFetch('auth/request', {
                 method: 'POST',
                 headers: {
-                    'Language': lang,
                     'Content-Type': 'application/json',
                     'Accept': '*/*',
                 },
@@ -369,7 +365,6 @@ const verifyOtpCode = async (data) => {
     showLoading(fieldsConfig['policy-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
     try {
         const userEmail = formData.inputs['email']
-        const lang = document.documentElement.lang
         const code = Object.keys(formData.inputs)
             .filter(key => key.startsWith("auth_code_"))
             .map(key => formData.inputs[key])
@@ -380,10 +375,9 @@ const verifyOtpCode = async (data) => {
             'code': code,
         };
 
-        const response = await fetch(`${backend_url}/auth/validate`, {
+        const response = await backendFetch('auth/validate', {
             method: 'POST',
             headers: {
-                'Language': lang,
                 'Content-Type': 'application/json',
                 'Accept': '*/*',
             },

@@ -4,13 +4,14 @@
  * Handles page rendering, language switching, and form/FAQ initialization
  */
 
-export const backend_url = "http://localhost:7000/api"
+const BACKEND_URL = "http://localhost:7000"
 
 import { getAvailableLangs, chooseLangFromNavigator, initLangToggle } from './lang-toggle.js';
 import { initFaq } from './faq.js';
 import { initFormHandler } from './form-handler.js';
 import { showLoading, hideLoading } from './loading-overlay.js';
 import { initOptHandler } from './otp-input-handler.js'
+import { configureBackend, backendFetch, processDataApiEndpoints, processStaticApiEndopints } from './api-endpoint-helper.js';
 
 const deepCheckKey = (obj, targetKey) => {
   if (!obj || typeof obj !== 'object') return false;
@@ -22,8 +23,8 @@ const deepCheckKey = (obj, targetKey) => {
 
 async function loadPage(lang = 'en-us') {
     try {
-        const response = await fetch(`${backend_url}/content/${lang}`);
-        const data = await response.json();
+        const response = await backendFetch(`content/${lang}`, { skipLanguageHeader: true });
+        const data = processStaticApiEndopints(await response.json());
 
         // Set document title from lang file
         if (data.pageTitle) {
@@ -47,6 +48,8 @@ async function loadPage(lang = 'en-us') {
             langToggle.value = lang;
         }
 
+        processDataApiEndpoints();
+
         // Initialize FAQ if on a page with FAQ section
         if (data['faq-section']) {
             initFaq(data['faq-section']);
@@ -69,6 +72,7 @@ async function loadPage(lang = 'en-us') {
 
 async function initializeApp() {
     try {
+        configureBackend(BACKEND_URL);
         showLoading();
 
         const available = await getAvailableLangs();
