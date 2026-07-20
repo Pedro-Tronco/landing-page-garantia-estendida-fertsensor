@@ -6,6 +6,7 @@
 import { showLoading, hideLoading } from './loading-overlay.js';
 import { backendFetch } from './api-endpoint-helper.js'
 import { getAuthToken, setAuthToken } from './auth.js'
+import { clearOtpInputFields } from './otp-input-handler.js'
 
 let currentFormData = null;
 
@@ -105,20 +106,30 @@ function validateForm(fieldsConfig) {
 
     // Check and validate auth
     if (fieldsConfig?.auth) {
-        const inputSettings = fieldsConfig?.auth
+        const inputSettings = fieldsConfig?.auth;
         const values = Object.keys(formData.inputs)
             .filter(key => key.startsWith("auth_code_"))
-            .map(key => formData.inputs[key])
+            .map(key => formData.inputs[key]);
 
-        for (const value of values) {
-            if (inputSettings.isRequired && !value) {
-                errors.push({
-                    field: inputSettings.id,
-                    message: fieldsConfig.formErrors.invalidAuthCode || 'Validation code expired or invalid. You can reset the code by pressing "Submit" next your email.'
-                });
-                break;
+        const element = document.getElementById('send-email-otp');
+
+        if(!element || element.innerText === fieldsConfig.email?.buttonLabel?.confirm) {
+            errors.push({
+                field: inputSettings.id,
+                message: fieldsConfig.formErrors.emailNotConfirmed || 'Please confirm your e-mail.'
+            });
+        } else {
+            for (const value of values) {
+                if (inputSettings.isRequired && !value) {
+                    errors.push({
+                        field: inputSettings.id,
+                        message: fieldsConfig.formErrors.invalidAuthCode || 'Validation code expired or invalid. You can reset the code by pressing "Submit" next your email.'
+                    });
+                    break;
+                };
             };
-        };
+        }
+
     }
 
     return {
@@ -389,6 +400,7 @@ const verifyOtpCode = async (data) => {
 
         if (statusCode == 401) {
             showErrors([{field: 'auth', message: data.message}])
+            clearOtpInputFields()
         } else {
             setAuthToken(data.token);
             toggleOtpSection(false);

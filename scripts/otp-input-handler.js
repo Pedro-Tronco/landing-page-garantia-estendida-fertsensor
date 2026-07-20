@@ -46,4 +46,14 @@ function initOptHandler(data) {
     });
 }
 
-export { initOptHandler }
+function clearOtpInputFields() {
+    const inputs = document.querySelectorAll('.otp-inputs input');
+
+    inputs.forEach((input, index) => {
+        input.value = null
+    });
+
+    inputs[0].focus()
+}
+
+export { initOptHandler, clearOtpInputFields }
