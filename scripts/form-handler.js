@@ -9,15 +9,16 @@ import { getAuthToken, setAuthToken } from './auth.js'
 import { clearOtpInputFields } from './otp-input-handler.js'
 
 let currentFormData = null;
+let formState = "sendOtpCode"
 
 /**
  * Get form field configuration from the loaded data
  */
 function getFieldsConfig(data) {
     return {
-        checkboxes: data['policy-section']?.checkboxes || [],
-        email: data['policy-section']['email-input'] || [],
-        auth: data['policy-section']['auth-input'] || [],
+        checkboxes: data['login-section']?.checkboxes || [],
+        email: data['login-section']?.['email-input'] || [],
+        auth: data['login-section']?.['auth-input'] || [],
         formConfig: data.formConfig || {},
         formErrors: data.formErrors || {},
     };
@@ -49,6 +50,30 @@ function collectFormData() {
     });
 
     return formData;
+}
+
+/**
+ * Update button label and step explanation
+ */
+function updateFormState(data, state) {
+    const content = data?.["login-section"]?.["states"]?.[state];
+    formState = state;
+
+    const button = document.getElementById("submit-button");
+    const buttonNote = document.getElementById("submit-button-note");
+    const explanation = document.getElementById("auth-explanation");
+
+    if (button) {
+        button.innerText = content?.["subbmitButton"]?.["label"];
+    }
+
+    if (buttonNote) {
+        buttonNote.innerText = content?.["subbmitButton"]?.["note"] ? content["subbmitButton"]["note"] : "";
+    }
+
+    if (explanation) {
+        explanation.innerText = content?.["explanation"];
+    }
 }
 
 /**
@@ -113,29 +138,39 @@ function validateForm(fieldsConfig) {
 
         const element = document.getElementById('send-email-otp');
 
-        if(!element || element.innerText === fieldsConfig.email?.buttonLabel?.confirm) {
-            errors.push({
-                field: inputSettings.id,
-                message: fieldsConfig.formErrors.emailNotConfirmed || 'Please confirm your e-mail.'
-            });
-        } else {
-            for (const value of values) {
-                if (inputSettings.isRequired && !value) {
-                    errors.push({
-                        field: inputSettings.id,
-                        message: fieldsConfig.formErrors.invalidAuthCode || 'Validation code expired or invalid. You can reset the code by pressing "Submit" next your email.'
-                    });
-                    break;
-                };
-            };
-        }
 
+        for (const value of values) {
+            if (inputSettings.isRequired && !value) {
+                errors.push({
+                    field: inputSettings.id,
+                    message: fieldsConfig.formErrors.invalidAuthCode || 'Validation code expired or invalid. You can reset the code by pressing "Submit" next your email.'
+                });
+                break;
+            };
+        };
     }
 
     return {
         isValid: errors.length === 0,
         errors: errors
     };
+}
+
+/**
+ * Display validation errors in the error container
+ */
+function toggleLoginPopup(enable) {
+    const element = document.getElementById("login-section-target");
+
+    if (!element) {
+        return
+    }
+
+    if (enable) {
+        element.style.display = "grid"
+    } else {
+        element.style.display = "none"
+    }
 }
 
 /**
@@ -209,8 +244,8 @@ function deactivateEmailInput(deactivate) {
     element.readOnly = deactivate ? true : false
 }
 
-function updateSendOptCodeButton({show, message, timeout, timeoutMsg} = {}) {
-    const element = document.getElementById('send-email-otp');
+function activateOtpTimeout(data) {
+    const element = document.getElementById('submit-button');
     let secondsLeft = 30;
 
     if (!element) {
@@ -221,29 +256,23 @@ function updateSendOptCodeButton({show, message, timeout, timeoutMsg} = {}) {
         element.style.display = show ? 'flex' : 'none'
     };
     
-    if (message) {
-        element.innerText = message
-    };
+    element.disabled = true;
+    element.style.backgroundColor = 'var(--text-muted)';
+    const label = data?.["login-section"]?.["states"]?.["timeout"]?.["subbmitButton"]?.["label"]
+
+    const timer = setInterval(() => {
+        secondsLeft--;
+        let timerData = {'secondsLeft': secondsLeft}
+        element.innerText = label.replace(/\${(.*?)}/g, (_, key) => timerData[key.trim()]) || `Wait (${secondsLeft}s)`;
         
-    if (timeout) {    
-        element.disabled = true;
-        element.style.backgroundColor = 'var(--text-muted)';
-        var previousInnerText = element.innerText
-  
-        const timer = setInterval(() => {
-            secondsLeft--;
-            let data = {'secondsLeft': secondsLeft}
-            element.innerText = timeoutMsg.replace(/\${(.*?)}/g, (_, key) => data[key.trim()]) || `Wait (${secondsLeft}s)`;
-            
-            if (secondsLeft <= 0) {
-                clearInterval(timer);
-                element.disabled = false;
-                secondsLeft = 30;
-                element.innerText = previousInnerText;
-                element.style.backgroundColor = 'var(--navy)';
-            }
-        }, 1000);
-    };
+        if (secondsLeft <= 0 || formState != "verifyOtpCode") {
+            clearInterval(timer);
+            element.disabled = false;
+            secondsLeft = 30;
+            element.innerText = data?.["login-section"]?.["states"]?.[formState]?.["subbmitButton"]?.["label"];
+            element.style.backgroundColor = 'var(--navy)';
+        }
+    }, 1000);
 }
 
 /**
@@ -251,118 +280,152 @@ function updateSendOptCodeButton({show, message, timeout, timeoutMsg} = {}) {
  */
 function initFormHandler(data) {
     const submitButton = document.getElementById('submit-button');
-    const sendEmailButton = document.getElementById('send-email-otp');
-    const fieldsConfig = getFieldsConfig(data);
-    
-    if (!submitButton || !sendEmailButton) return;
+    const exitPopupButton = document.getElementById('exit-login-popup');
+    const openPopupButton = document.getElementById('open-login-popup');
+    const openPopupButtonReminder = document.getElementById('open-login-popup-reminder');
 
-    updateSendOptCodeButton({message: fieldsConfig.email?.buttonLabel?.confirm})
+    updateFormState(data, "sendOtpCode")
     
+    if (!submitButton || !exitPopupButton || !openPopupButton || !openPopupButtonReminder) return;    
+
     submitButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-        clearErrors();
+        showLoading();
 
-        const validation = validateForm(fieldsConfig);
-
-        
-        if (!validation.isValid) {
-            showErrors(validation.errors);
-            return;
+        if (formState == "sendOtpCode") {
+            await sendOtpCode(data);
+            updateFormState(data, "verifyOtpCode");
+            activateOtpTimeout(data);
+        } else if (formState == "verifyOtpCode") {
+            await sendOtpCode(data);
+            activateOtpTimeout(data);
+        } else if (formState == "proceedToForm") {
+            await subbmitForm(data);
+            toggleLoginPopup(false);
         }
-        
-        const formData = fieldsConfig['formData']
-        
-        showLoading(fieldsConfig['policy-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
 
-        try {
-            const token = getAuthToken()
-
-            if (token === 'Bearer null') {
-                showErrors([{ field: 'general', message: fieldsConfig.formErrors?.didNotAuthenticate }]);
-                return;
-            }
-
-            const response = await backendFetch('ws/form-response-url', {
-                method: 'GET',
-                headers: {
-                    'Authorization': token,
-                    'Content-Type': 'application/json',
-                    'Accept': '*/*',
-                }
-            });
-
-            const statusCode = response.status
-            const data = await response.json()
-
-            if (statusCode === 401) {
-                setAuthToken(null);
-                toggleOtpSection(true);
-                updateSendOptCodeButton({show: true});
-                deactivateEmailInput(false);
-                showEmailStatusMessage('', 'var(--text-muted)');
-                showErrors([{ field: 'general', message: fieldsConfig.formErrors?.authTokenExpired }]);
-
-            } else if (statusCode === 429) {
-                showErrors([{ field: 'general', message: data?.message }]);
-            } else {
-                window.open(data?.url, "_blank")
-            }
-
-        } catch (error) {
-            console.error('API call failed:', error);
-            showErrors([{ field: 'general', message: 'An error occurred. Please try again.' }]);
-        } finally {
-            hideLoading();
-        }
+        hideLoading();
     });
 
-    sendEmailButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-        clearErrors();
-
-        const validation = validateForm((({ email, formConfig, formData, formErrors }) => ({ email, formConfig, formData, formErrors }))(fieldsConfig));
-
-        if (!validation.isValid) {
-            showErrors(validation.errors);
-            return;
-        }
-
-        const formData = collectFormData();
-        
-        showLoading(fieldsConfig['policy-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
-        try {
-            const userEmail = formData.inputs['email']
-
-            const payload = {
-                'email': userEmail
-            };
-
-            const response = await backendFetch('auth/request', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': '*/*',
-                },
-                body: JSON.stringify(payload),
-            });
-
-            toggleOtpSection(true)
-            updateSendOptCodeButton({message: fieldsConfig.email?.buttonLabel?.resendCode, timeout: true, timeoutMsg: fieldsConfig.email?.buttonLabel?.timeout})
-
-        } catch (error) {
-            console.error('API call failed:', error);
-            showErrors([{ field: 'general', message: 'An error occurred. Please try again.' }]);
-        } finally {
-            hideLoading()
-        }
-        
+    exitPopupButton.addEventListener('click', async (e) => {
+        toggleLoginPopup(false);
     });
 
+    openPopupButton.addEventListener('click', async (e) => {
+        toggleLoginPopup(true);
+    });
+
+    openPopupButtonReminder.addEventListener('click', async (e) => {
+        toggleLoginPopup(true);
+    });
 }
 
-const verifyOtpCode = async (data) => {
-    clearErrors();
+const subbmitForm = async (data) => {
     const fieldsConfig = getFieldsConfig(data);
+    clearErrors();
+
+    const validation = validateForm(fieldsConfig);
+
+    
+    if (!validation.isValid) {
+        showErrors(validation.errors);
+        return;
+    }
+    
+    const formData = fieldsConfig['formData']
+    
+    showLoading(fieldsConfig['login-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
+
+    try {
+        const token = getAuthToken()
+
+        if (token === 'Bearer null') {
+            showErrors([{ field: 'general', message: fieldsConfig.formErrors?.didNotAuthenticate }]);
+            return;
+        }
+
+        const response = await backendFetch('ws/form-response-url', {
+            method: 'GET',
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+            }
+        });
+
+        const statusCode = response.status
+        const data = await response.json()
+
+        if (statusCode === 401) {
+            setAuthToken(null);
+            toggleOtpSection(true);
+            deactivateEmailInput(false);
+            showEmailStatusMessage('', 'var(--text-muted)');
+            showErrors([{ field: 'general', message: fieldsConfig.formErrors?.authTokenExpired }]);
+            clearOtpInputFields()
+        } else if (statusCode === 429) {
+            showErrors([{ field: 'general', message: data?.message }]);
+        } else {
+            window.open(data?.url, "_blank")
+        }
+
+    } catch (error) {
+        console.error('API call failed:', error);
+        showErrors([{ field: 'general', message: 'An error occurred. Please try again.' }]);
+    }
+};
+
+const sendOtpCode = async (data) => {
+    const fieldsConfig = getFieldsConfig(data);
+    clearErrors();
+
+    const validation = validateForm((({ email, formConfig, formData, formErrors }) => ({ email, formConfig, formData, formErrors }))(fieldsConfig));
+
+    if (!validation.isValid) {
+        showErrors(validation.errors);
+        return;
+    }
+
+    const formData = collectFormData();
+    
+    showLoading(fieldsConfig['login-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
+    try {
+        const userEmail = formData.inputs['email']
+
+        const payload = {
+            'email': userEmail
+        };
+
+        const response = await backendFetch('auth/request', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': '*/*',
+            },
+            body: JSON.stringify(payload),
+        });
+
+        const statusCode = response.status
+        const data = await response.json()
+
+        if (statusCode === 429) {
+            showErrors([{ field: 'general', message: data?.message }]);
+        } else {
+            toggleOtpSection(true)
+        }
+
+        return
+
+    } catch (error) {
+        console.error('API call failed:', error);
+        showErrors([{ field: 'general', message: 'An error occurred. Please try again.' }]);
+    } finally {
+        hideLoading()
+    }
+};
+
+const verifyOtpCode = async (data) => {
+    const fieldsConfig = getFieldsConfig(data);
+    clearErrors();
 
     const validation = validateForm((({ auth, formConfig, formErrors }) => ({ auth, formConfig, formErrors }))(fieldsConfig));
 
@@ -373,7 +436,7 @@ const verifyOtpCode = async (data) => {
 
     const formData = collectFormData();
 
-    showLoading(fieldsConfig['policy-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
+    showLoading(fieldsConfig['login-section']?.subbmitButton?.loadingMessage || 'Processing your request...');
     try {
         const userEmail = formData.inputs['email']
         const code = Object.keys(formData.inputs)
@@ -396,18 +459,24 @@ const verifyOtpCode = async (data) => {
         });
 
         const statusCode = response.status;
-        const data = await response.json();
+        const result = await response.json();
 
         if (statusCode == 401) {
-            showErrors([{field: 'auth', message: data.message}])
-            clearOtpInputFields()
+            showErrors([{field: 'auth', message: result.message}]);
+            clearOtpInputFields();
+        } else if (statusCode == 429) {
+            showErrors([{field: 'auth', message: result.message}]);
+            clearOtpInputFields();
         } else {
-            setAuthToken(data.token);
+            setAuthToken(result.token);
             toggleOtpSection(false);
-            updateSendOptCodeButton({show: false});
             deactivateEmailInput(true);
+            updateFormState(data, "proceedToForm");
+            console.log(data)
             showEmailStatusMessage('✔', 'var(--blue)');
         }
+
+        return
     } catch (error) {
         console.error('API call failed:', error);
         showErrors([{ field: 'general', message: 'An error occurred. Please try again.' }]);

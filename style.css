@@ -35,7 +35,8 @@
     --hero-max-width: 50%;
     --install-content-max-width: 50%;
     --install-video-max-width: 42%;
-    --policy-content-max-width: 70%;
+    --form-inputs-width: 300px;
+    --faq-section-width: 90%;
 }
 
 /* Otimiza visualização para telefones no modo retrato */
@@ -44,8 +45,8 @@
         --hero-max-width: 95%;
         --install-content-max-width: 100%;
         --install-video-max-width: 100%;
-        --policy-content-max-width: 90%;
-        --form-inputs-max-width: 100%;
+        --form-inputs-width: 90%;
+        --faq-section-width: 65%;
     }
     
     .install-article {
@@ -59,8 +60,7 @@
         --hero-max-width: 95%;
         --install-content-max-width: 90%;
         --install-video-max-width: calc((100dvh * (16 / 9)) - 130px);
-        --policy-content-max-width: 80%;
-        --form-inputs-max-width: 90%;
+        --form-inputs-width: 300px;
     }
 
     .install-article {
@@ -122,6 +122,15 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -155,7 +164,6 @@ hr {
     margin-bottom: 30px;
     width: 90vw;
 }
-
 
 section {
     display: grid;
@@ -817,7 +825,7 @@ section {
     padding: 0px min(2vw, 5%);
     margin: 0 20px;
     gap: 20px;
-    max-width: 80vw;
+    max-width: var(--faq-section-width);
 }
 
 .faq-categories-wrapper {
@@ -859,7 +867,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 97%;
+    width: 88%;
     justify-self: center;
     padding: 10px 0;
     margin-bottom: 50px;
@@ -983,189 +991,73 @@ section {
     background-color: var(--orange-bright);
 }
 
-.policy-section {
-    max-width: var(--policy-content-max-width);
-    width: 100%;
-    padding: 0px;
-    margin: 0 20px;
-    gap: 20px;
-    justify-self: center;
-    max-height: fit-content;
-}
-
-.policy-document-container {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--light-beige);
-    border-radius: 0 7px 7px 0; 
-    margin-bottom: 20px;
-    border-left: solid 6px var(--orange);
-}
-
-.policy-document-container h1 {
-    font-family: var(--font-title);
-    font-size: 22px;
-    color: var(--navy);
-    font-weight: 700;
-    margin: 10px 5px;
-}
-
-.pdf-container {
-    box-shadow: 0 0 3px var(--text-muted);
-    aspect-ratio: 1 / 1.314;
-    max-width: 97%;
-    max-height: 85dvh;
-    width: 100%;
-    margin: 10px auto;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.pdf-viewer {
+.popup-section {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    justify-items: center;
+    align-items: center;
+    z-index: 8888;
+    background-color: rgba(20, 20, 20, 0.8);
+    animation: fadeIn 0.2s ease-in forwards;
 }
 
-.pdf-viewer p {
-    text-align: center;
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--text);
-    margin: 20px 0;
+.close-container-button {
+    position: absolute;
+    top: 7px;
+    right: 7px;
 }
 
-.checkbox-message {
-    font-family: var(--font-body);
-    font-size: 18px;
-    color: var(--text-muted);
-    font-weight: 500;
+.close-container-button:hover {
+    cursor: pointer;
+    border: 2px solid var(--btn-gray);
 }
 
-.checkbox-container {
+.login-popup {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    gap: 15px;
-    margin: 25px 0;
-} 
-
-.checkbox-container label {
-    display: flex;
-    flex-direction: row;
     gap: 10px;
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--navy);
-    cursor: pointer;
-    align-items: center;
-    justify-content: flex-start;
-    
-}
-
-.checkbox-container label:hover {
-    color: var(--navy-light);
-}
-
-.checkbox-container input[type="checkbox"] {
-    appearance: none; 
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--navy);
-    border-radius: 4px;
-    outline: none;
-    background-color: var(--white);
-    cursor: pointer;
-    display: grid;
-    place-content: center;
-    transition: 0.15s ease-in-out;
-    flex-shrink: 0;
-}
-
-.checkbox-container input[type="checkbox"]:hover {
-    border-color: var(--navy-light);
-}
-
-.checkbox-container input[type="checkbox"]:checked {
-    border-color: var(--navy-light);
-    appearance: none; 
-    background-color: var(--blue);
-    color: var(--white);
-}
-
-.checkbox-container input[type="checkbox"]::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  background-color: var(--white);
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-
-.checkbox-container input[type="checkbox"]:checked::before {
-  transform: scale(1);
-}
-
-.required-asterisk {
-    color: red;
-    font-size: 20px;
-    font-weight: 600;
-    font-family: var(--font-ui);
-    line-height: 0;
-    margin-bottom: -0.15em;
-}
-
-.required-label {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 5px;
-    margin: 5px 0;
-}
-
-.required-label p {
-    color: red;
-    font-size: 15px;
-    font-family: var(--font-ui);
-    font-weight: 500;
-}
-
-.inputs-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: var(--form-inputs-max-width);
-    margin: 15px 0;
-    border-left: 3px solid var(--navy);
-    background-color: var(--light-beige);
+    max-width: calc(var(--form-inputs-width) + 40px);
+    width: 100%;
     padding: 8px 15px;
-    animation: growVertical 0.2s ease-out forwards;
+    position: relative;
+    box-shadow: 2px 2px 10px var(--text); 
+    align-items: center;
+    background-color: var(--light-beige);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: 5px solid var(--blue);
 }
 
-.inputs-container label {
-    font-family: var(--font-ui);
-    font-size: 18px;
+.login-popup h1 {
+    font-family: var(--font-title);
     color: var(--navy);
-    font-weight: 500;
+    text-align: center;
+    font-size: 24px;
 }
 
-.inputs-container p {
+.login-popup label {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 600;
+    width: var(--form-inputs-width);
+    margin-left: 2px;
+}
+
+.login-popup p {
     font-family: var(--font-body);
     font-size: 14px;
-    color: var(--text-muted);
+    color: var(--text);
     font-weight: 500;
     margin: 6px 0;
+    width: calc(var(--form-inputs-width) + 20px);
 }
 
-.inputs-container .note {
+.login-popup .note {
     font-family: var(--font-body);
     font-size: 12px;
     color: var(--text-muted);
@@ -1173,57 +1065,48 @@ section {
     text-align: left;
 }
 
-.inputs-container .note::before {
+.login-popup .note::before {
     content: "» ";
     font-size: 16px;
     color: var(--text-muted);
 }
 
-.inputs-container button {
-    width: fit-content;
-    height: fit-content;
-    align-self: center;
-    text-decoration: none;
-    font-size: 16px;
-    font-family: var(--font-body);
-    background-color: var(--navy);
-    color: var(--white);
-    font-weight: 500;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.login-popup .input-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
 
-.inputs-container button:hover {
-    background-color: var(--navy-light);
+.login-popup .input-container label {
+    text-align: left;
+    max-width: fit-content;
 }
 
-.inputs-container .input-container {
+.input-fields {
+    margin: 0 10px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 100%;
+    flex-direction: column;
+    gap: 2px,;
 }
 
 .email-field {
-    display: flex;
+    display: grid;
     flex-direction: column;
     gap: 5px;
-    width: auto;
-    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 .email-field input {
-    padding: 8px 10px;
+    padding: 6px 7px;
     border-radius: 5px;
     border: 1px solid var(--gray);
     font-family: var(--font-ui);
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text);
-    width: min(370px, 90%);
+    width: var(--form-inputs-width);
     background-color: var(--white);
 }
 
@@ -1234,15 +1117,15 @@ section {
     font-family: var(--font-body);
     align-self: center;
     margin-right: auto;
+    width: min-content;
 }
 
 .auth-field {
-    display: flex;
     flex-direction: column;
     gap: 5px;
-    width: auto;
-    margin-bottom: 20px;
-    display: none;
+    width: 100%;
+    display: none; /* grid */
+    justify-content: center;
     animation: growVertical 0.2s ease-out forwards;
 }
 
@@ -1250,7 +1133,8 @@ section {
     display: flex;
     justify-content: space-between;
     gap: min(12px, 3%);
-    width: min(320px, 90%);
+    width: calc(var(--form-inputs-width) + 16px);
+    align-self: center;
 }
 
 .otp-inputs input{
@@ -1275,7 +1159,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
+    margin: 10px 20px;
 }
 
 .submit-button-container button {
@@ -1290,6 +1174,7 @@ section {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: var(--form-inputs-width);
 }
 
 .submit-button-container button:hover {
@@ -1301,6 +1186,7 @@ section {
     font-size: 12px;
     color: var(--text-muted);
     margin-top: 6px;
+    text-align: center;
 }
 
 .footer-container {
@@ -1397,12 +1283,13 @@ section {
 }
 
 .form-errors-container {
+    border-left: 3px solid var(--orange);
     background-color: var(--orange-background);
-    border: 1px solid var(--orange);
-    padding: 8px 16px;
+    padding: 5px;
+    padding-left: 8px;
     margin-bottom: 20px;
     display: none;
-    border-radius: 5px;
+    width: 90%;
 }
 
 .form-errors-list {

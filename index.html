@@ -91,7 +91,7 @@
                                 {{/hero.form.fields}}
                             </ul>
                             <form action="warranty.html">
-                                <button type="submit">{{hero.form.buttonLabel}}</button>
+                                <button type="button" id="open-login-popup">{{hero.form.buttonLabel}}</button>
                             </form>
                             {{#hero.form.note}}
                                 <p class="hero-form-observation">{{description}}</p>
@@ -206,9 +206,7 @@
                 <div class="form-reminder">
                     <h1>{{form-reminder.title}}</h1>
                     <p>{{form-reminder.subtitle}}</p>
-                    <a href="warranty.html">
-                        <button>{{form-reminder.buttonLabel}}</button>
-                    </a>
+                    <button id="open-login-popup-reminder">{{form-reminder.buttonLabel}}</button>
                 </div>
             </script>
             <div id="form-reminder-target" class="form-reminder-section"></div>
@@ -252,6 +250,50 @@
             <p id="form-loading-message"></p>
         </div>
     </div>
+
+    <!-- Auth form -->
+    <section>
+        <script id="login-section-template" type="text/template">
+            <form id="warranty-form" class="login-popup">
+                <button id="exit-login-popup" type="button" class="close-container-button fs-button-cancel"></button>
+                <h1>{{login-section.title}}</h1>
+                <p id="auth-explanation">{{explanation}}</p>
+                <div class="input-fields">
+                    {{#login-section.email-input}}
+                    <div class="email-field">
+                        <label for="email">{{label}}</label>
+                        <div class="input-container">
+                            <input type="{{type}}" id="email" name="email" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                            <label for="email"><h3 class="email-status-message"></h3></label>
+                        </div>
+                    </div>
+                    {{/login-section.email-input}}
+                    {{#login-section.auth-input}}
+                    <div class="auth-field">
+                        <label for="{{id}}_1">{{label}}</label>
+                        <div class="input-container">
+                            <div class="otp-inputs">
+                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_1" name="{{id}}" placeholder="{{placeholder}}" autocomplete="one-time-code" {{#isRequired}}required{{/isRequired}}>
+                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_2" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_3" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_4" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_5" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_6" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                            </div>
+                        </div>
+                        <label for="{{id}}_1" class="note">{{{note}}}</label>
+                    </div>
+                </div>
+                {{/login-section.auth-input}}
+                <div id="form-errors-container" class="form-errors-container" style="display: none;"></div>
+                <div class="submit-button-container">
+                    <button type="button" id="submit-button">{{label}}</button>
+                    <p id="submit-button-note">{{note}}</p>
+                </div>
+            </form>
+        </script>
+        <div id="login-section-target" class="popup-section"></div>
+    </section>
 
     <!-- Loads all elements based on lang file -->
     <script src="scripts/load-page.js" type="module" defer></script>

@@ -4,7 +4,7 @@
  * Handles page rendering, language switching, and form/FAQ initialization
  */
 
-const BACKEND_URL = "http://localhost:7000"
+const BACKEND_URL = "https://viruses-wayne-minus-fighters.trycloudflare.com"
 
 import { getAvailableLangs, chooseLangFromNavigator, initLangToggle } from './lang-toggle.js';
 import { initFaq } from './faq.js';
@@ -56,7 +56,7 @@ async function loadPage(lang = 'en-us') {
         }
 
         // Initialize form handler if on warranty page
-        if (data['policy-section']) {
+        if (data['login-section']) {
             initFormHandler(data);
         }
 

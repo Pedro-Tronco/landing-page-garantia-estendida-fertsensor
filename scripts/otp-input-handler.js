@@ -8,10 +8,12 @@ function initOptHandler(data) {
 
         // Move forward on input
         input.addEventListener('input', async (e) => {
+        input.addEventListener('input', async (e) => {
             if (e.target.value.length === 1 && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
             if (e.target.value.length === 1 && index == inputs.length - 1) {
+                await verifyOtpCode(data)
                 await verifyOtpCode(data)
             }
         });
@@ -25,12 +27,12 @@ function initOptHandler(data) {
 
         // Handle pasting of 6-digit codes
         input.addEventListener('paste', async (e) => {
-            const content = e.clipboardData.getData('text');
-            if (content.length === inputs.length) {
+            const value = e.clipboardData.getData('text');
+            if (value.length === inputs.length) {
                 inputs.forEach((inp, i) => {
-                    inp.value = content[i];
+                    inp.value = value[i];
                 });
-                await verifyOtpCode(data)
+                await verifyOtpCode(data);
                 inputs[inputs.length - 1].focus();
             }
         });
