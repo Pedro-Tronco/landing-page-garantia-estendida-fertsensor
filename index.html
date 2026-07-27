@@ -254,7 +254,7 @@
     <!-- Auth form -->
     <section>
         <script id="login-section-template" type="text/template">
-            <form id="warranty-form" class="login-popup">
+            <form id="login-form" class="login-popup">
                 <button id="exit-login-popup" type="button" class="close-container-button fs-button-cancel"></button>
                 <h1>{{login-section.title}}</h1>
                 <p id="auth-explanation">{{explanation}}</p>
@@ -273,12 +273,12 @@
                         <label for="{{id}}_1">{{label}}</label>
                         <div class="input-container">
                             <div class="otp-inputs">
-                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_1" name="{{id}}" placeholder="{{placeholder}}" autocomplete="one-time-code" {{#isRequired}}required{{/isRequired}}>
-                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_2" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
-                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_3" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
-                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_4" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
-                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_5" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
-                                <input maxlength="1" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" type="{{type}}" id="{{id}}_6" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input autocomplete="one-time-code" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" pattern="[0-9]*" type="{{type}}" id="{{id}}_1" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" pattern="[0-9]*" type="{{type}}" id="{{id}}_2" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" pattern="[0-9]*" type="{{type}}" id="{{id}}_3" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" pattern="[0-9]*" type="{{type}}" id="{{id}}_4" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" pattern="[0-9]*" type="{{type}}" id="{{id}}_5" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
+                                <input inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '');" pattern="[0-9]*" type="{{type}}" id="{{id}}_6" name="{{id}}" placeholder="{{placeholder}}" {{#isRequired}}required{{/isRequired}}>
                             </div>
                         </div>
                         <label for="{{id}}_1" class="note">{{{note}}}</label>

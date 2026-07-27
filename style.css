@@ -36,7 +36,7 @@
     --install-content-max-width: 50%;
     --install-video-max-width: 42%;
     --form-inputs-width: 300px;
-    --faq-section-width: 90%;
+    --faq-section-width: 95%;
 }
 
 /* Otimiza visualização para telefones no modo retrato */
@@ -45,8 +45,8 @@
         --hero-max-width: 95%;
         --install-content-max-width: 100%;
         --install-video-max-width: 100%;
-        --form-inputs-width: 90%;
-        --faq-section-width: 65%;
+        --form-inputs-width: 75dvw;
+        --faq-section-width: 85dvw;
     }
     
     .install-article {
@@ -61,6 +61,7 @@
         --install-content-max-width: 90%;
         --install-video-max-width: calc((100dvh * (16 / 9)) - 130px);
         --form-inputs-width: 300px;
+        --faq-section-width: 95%;
     }
 
     .install-article {
@@ -867,7 +868,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 88%;
+    width: 95%;
     justify-self: center;
     padding: 10px 0;
     margin-bottom: 50px;
@@ -1019,7 +1020,7 @@ section {
 .login-popup {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     max-width: calc(var(--form-inputs-width) + 40px);
     width: 100%;
     padding: 8px 15px;
@@ -1036,7 +1037,7 @@ section {
     font-family: var(--font-title);
     color: var(--navy);
     text-align: center;
-    font-size: 24px;
+    font-size: 25px;
 }
 
 .login-popup label {
@@ -1050,7 +1051,7 @@ section {
 
 .login-popup p {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text);
     font-weight: 500;
     margin: 6px 0;
@@ -1059,7 +1060,7 @@ section {
 
 .login-popup .note {
     font-family: var(--font-body);
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-muted);
     font-weight: 500;
     text-align: left;
@@ -1075,7 +1076,7 @@ section {
     display: grid;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
 }
 

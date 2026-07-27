@@ -167,9 +167,11 @@ function toggleLoginPopup(enable) {
     }
 
     if (enable) {
-        element.style.display = "grid"
+        element.style.display = "grid";
+        document.body.style.overflow = 'hidden';
     } else {
-        element.style.display = "none"
+        element.style.display = "none";
+        document.body.style.overflow = '';
     }
 }
 
@@ -283,6 +285,8 @@ function initFormHandler(data) {
     const exitPopupButton = document.getElementById('exit-login-popup');
     const openPopupButton = document.getElementById('open-login-popup');
     const openPopupButtonReminder = document.getElementById('open-login-popup-reminder');
+    const formElement = document.getElementById('login-form');
+    const loginBackdrop = document.getElementById('login-section-target');
 
     updateFormState(data, "sendOtpCode")
     
@@ -293,11 +297,8 @@ function initFormHandler(data) {
 
         if (formState == "sendOtpCode") {
             await sendOtpCode(data);
-            updateFormState(data, "verifyOtpCode");
-            activateOtpTimeout(data);
         } else if (formState == "verifyOtpCode") {
             await sendOtpCode(data);
-            activateOtpTimeout(data);
         } else if (formState == "proceedToForm") {
             await subbmitForm(data);
             toggleLoginPopup(false);
@@ -316,6 +317,24 @@ function initFormHandler(data) {
 
     openPopupButtonReminder.addEventListener('click', async (e) => {
         toggleLoginPopup(true);
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key == 'Enter') {
+            event.preventDefault();
+            submitButton.click();
+        }
+        
+        if (event.key == 'Escape') {
+            event.preventDefault();
+            exitPopupButton.click();
+        }
+    });
+
+    loginBackdrop.addEventListener('click', (e) => {
+        if (!formElement.contains(e.target)) {
+            toggleLoginPopup(false);
+        }
     });
 }
 
@@ -405,12 +424,14 @@ const sendOtpCode = async (data) => {
         });
 
         const statusCode = response.status
-        const data = await response.json()
+        const result = await response.json()
 
         if (statusCode === 429) {
-            showErrors([{ field: 'general', message: data?.message }]);
+            showErrors([{ field: 'general', message: result?.message }]);
         } else {
-            toggleOtpSection(true)
+            toggleOtpSection(true);
+            updateFormState(data, "verifyOtpCode");
+            activateOtpTimeout(data);
         }
 
         return
@@ -472,7 +493,6 @@ const verifyOtpCode = async (data) => {
             toggleOtpSection(false);
             deactivateEmailInput(true);
             updateFormState(data, "proceedToForm");
-            console.log(data)
             showEmailStatusMessage('✔', 'var(--blue)');
         }
 

@@ -6,15 +6,34 @@ function initOptHandler(data) {
 
     inputs.forEach((input, index) => {
 
-        // Move forward on input
+        // 1. Capture BOTH manual typing AND keyboard suggestions/pastes
         input.addEventListener('input', async (e) => {
-        input.addEventListener('input', async (e) => {
-            if (e.target.value.length === 1 && index < inputs.length - 1) {
+            const value = e.target.value;
+
+            // FIX: Check if a multi-digit string was dumped into this box
+            if (value.length > 1) {
+                // Strip non-numbers and limit payload to remaining empty boxes
+                const cleanCode = value.replace(/[^0-9]/g, '').slice(0, inputs.length);
+                
+                // Distribute data across inputs starting from this input box
+                cleanCode.split('').forEach((char, i) => {
+                    if (inputs[index + i]) {
+                        inputs[index + i].value = char;
+                    }
+                });
+
+                // Auto-submit if the code reaches the final block length
+                await verifyOtpCode(data);
+                inputs[inputs.length - 1].focus();
+                return;
+            }
+
+            // Normal workflow: Move forward on single-character input
+            if (value.length === 1 && index < inputs.length - 1) {
                 inputs[index + 1].focus();
             }
-            if (e.target.value.length === 1 && index == inputs.length - 1) {
-                await verifyOtpCode(data)
-                await verifyOtpCode(data)
+            if (value.length === 1 && index == inputs.length - 1) {
+                await verifyOtpCode(data);
             }
         });
 
@@ -25,12 +44,15 @@ function initOptHandler(data) {
             }
         });
 
-        // Handle pasting of 6-digit codes
+        // Keep standard desktop right-click/long-press paste listener intact as a backup
         input.addEventListener('paste', async (e) => {
+            e.preventDefault(); // Prevent double injection alongside the input handler
             const value = e.clipboardData.getData('text');
-            if (value.length === inputs.length) {
+            const cleanCode = value.replace(/[^0-9]/g, '').slice(0, inputs.length);
+
+            if (cleanCode.length === inputs.length) {
                 inputs.forEach((inp, i) => {
-                    inp.value = value[i];
+                    inp.value = cleanCode[i];
                 });
                 await verifyOtpCode(data);
                 inputs[inputs.length - 1].focus();
