@@ -4,7 +4,7 @@
  * Handles page rendering, language switching, and form/FAQ initialization
  */
 
-const BACKEND_URL = "https://viruses-wayne-minus-fighters.trycloudflare.com"
+const BACKEND_URL = "https://usr-mine-shuttle-shareholders.trycloudflare.com"
 
 import { getAvailableLangs, chooseLangFromNavigator, initLangToggle } from './lang-toggle.js';
 import { initFaq } from './faq.js';
