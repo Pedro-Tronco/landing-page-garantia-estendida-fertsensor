@@ -248,7 +248,7 @@ function deactivateEmailInput(deactivate) {
 
 function activateOtpTimeout(data) {
     const element = document.getElementById('submit-button');
-    let secondsLeft = 30;
+    let secondsLeft = 60;
 
     if (!element) {
         return
@@ -301,7 +301,6 @@ function initFormHandler(data) {
             await sendOtpCode(data);
         } else if (formState == "proceedToForm") {
             await subbmitForm(data);
-            toggleLoginPopup(false);
         }
 
         hideLoading();
@@ -372,7 +371,7 @@ const subbmitForm = async (data) => {
         });
 
         const statusCode = response.status
-        const data = await response.json()
+        const result = await response.json()
 
         if (statusCode === 401) {
             setAuthToken(null);
@@ -380,11 +379,13 @@ const subbmitForm = async (data) => {
             deactivateEmailInput(false);
             showEmailStatusMessage('', 'var(--text-muted)');
             showErrors([{ field: 'general', message: fieldsConfig.formErrors?.authTokenExpired }]);
-            clearOtpInputFields()
+            clearOtpInputFields();
+            updateFormState(data, "verifyOtpCode");
         } else if (statusCode === 429) {
-            showErrors([{ field: 'general', message: data?.message }]);
+            showErrors([{ field: 'general', message: result?.message }]);
         } else {
-            window.open(data?.url, "_blank")
+            window.open(result?.url, "_blank");
+            toggleLoginPopup(false);
         }
 
     } catch (error) {
